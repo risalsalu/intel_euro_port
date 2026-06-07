@@ -7,12 +7,12 @@ const industriesList = [
   { id: "ind-1", name: "Healthcare", description: "Clinics, diagnostics, and patient portals.", filter: "Healthcare" },
   { id: "ind-2", name: "Restaurant", description: "Food photography, ordering, and reservations.", filter: "Restaurant" },
   { id: "ind-3", name: "E-Commerce", description: "Digital storefronts and optimized checkouts.", filter: "E-Commerce" },
-  { id: "ind-4", name: "Food-Delivery", description: "Learning dashboards and hostel food delivery systems.", filter: "Hostel Food Delivery" },
+  { id: "ind-4", name: "Food-Delivery", description: "Mess food orders and hostel food delivery systems.", filter: "Hostel Food Delivery" },
   { id: "ind-5", name: "Wedding Digital", description: "Custom digital invitations and RSVP management.", filter: "Wedding Invitation Digital" },
   { id: "ind-6", name: "Creative Arts", description: "Fine art, calligraphy, and luxury showrooms.", filter: "Calligraphy & Artwork" },
   { id: "ind-7", name: "Fashion", description: "Bespoke lookbooks and campaign storytelling.", filter: "Fashion & Lifestyle" },
   { id: "ind-8", name: "Technology", description: "Curriculums, SaaS, and platform dashboards.", filter: "Technology" }
-];
+]; s
 
 export default function Industries() {
   const [activeInd, setActiveInd] = useState(industriesList[0]);
