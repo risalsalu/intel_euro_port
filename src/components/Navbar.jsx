@@ -26,7 +26,7 @@ export default function Navbar({ onToggleMenu, isMenuOpen }) {
 
         <div className="nav-links">
           <a href="#about" className="nav-link">About</a>
-          <a href="#services" class="nav-link">Services</a>
+          <a href="#services" className="nav-link">Services</a>
           <a href="#work" className="nav-link">Work</a>
           <a href="#process" className="nav-link">Process</a>
           <a href="#contact" className="nav-cta">Start A Project</a>

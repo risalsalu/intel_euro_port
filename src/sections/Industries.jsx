@@ -12,7 +12,7 @@ const industriesList = [
   { id: "ind-6", name: "Creative Arts", description: "Fine art, calligraphy, and luxury showrooms.", filter: "Calligraphy & Artwork" },
   { id: "ind-7", name: "Fashion", description: "Bespoke lookbooks and campaign storytelling.", filter: "Fashion & Lifestyle" },
   { id: "ind-8", name: "Technology", description: "Curriculums, SaaS, and platform dashboards.", filter: "Technology" }
-]; s
+];
 
 export default function Industries() {
   const [activeInd, setActiveInd] = useState(industriesList[0]);
