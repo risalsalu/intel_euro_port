@@ -1,17 +1,40 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import { projectsData } from "../data/portfolioData";
 
 export default function FeaturedWork() {
   const targetRef = useRef(null);
+  const trackRef = useRef(null);
+  const [maxScroll, setMaxScroll] = useState(0);
+
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
 
-  // Calculate translation distance based on screen widths (8 projects + spacing)
-  // Maps 0-1 vertical scroll to 0 to -80% horizontal translation on desktop
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
+  useEffect(() => {
+    const calculateScroll = () => {
+      if (!trackRef.current) return;
+      const trackWidth = trackRef.current.scrollWidth;
+      const viewportWidth = window.innerWidth;
+      
+      const padding = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--container-padding')) || 80;
+      const calculatedMax = Math.max(0, trackWidth - viewportWidth + padding);
+      setMaxScroll(calculatedMax);
+    };
+
+    calculateScroll();
+    
+    window.addEventListener("load", calculateScroll);
+    window.addEventListener("resize", calculateScroll);
+    
+    return () => {
+      window.removeEventListener("load", calculateScroll);
+      window.removeEventListener("resize", calculateScroll);
+    };
+  }, []);
+
+  const x = useTransform(scrollYProgress, [0, 1], ["0px", `-${maxScroll}px`]);
 
   return (
     <section ref={targetRef} className="work-scroll-container" style={{ position: "relative", height: "350vh" }}>
@@ -43,6 +66,7 @@ export default function FeaturedWork() {
 
           {/* Horizontal Track container */}
           <motion.div 
+            ref={trackRef}
             style={{ x, display: "flex", gap: "48px", paddingLeft: "var(--container-padding)", paddingRight: "var(--container-padding)" }} 
             className="work-horizontal-track"
           >

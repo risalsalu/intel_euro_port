@@ -2,12 +2,18 @@ import React, { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { caseStudiesData } from "../data/caseStudiesData";
+import { projectsData } from "../data/portfolioData";
 import MagneticButton from "../components/MagneticButton";
 
 export default function CaseStudy() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const project = caseStudiesData[slug];
+
+  const otherProjects = projectsData.filter((p) => {
+    const pSlug = p.name.toLowerCase().replace(/ /g, "-").replace(/&/g, "and");
+    return pSlug !== slug;
+  }).slice(0, 3);
 
   useEffect(() => {
     if (!project) {
@@ -272,6 +278,54 @@ export default function CaseStudy() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* More Projects Section */}
+      <section style={{ background: "#FAFAFA", padding: "100px 0", borderTop: "1px solid #EAEAEA", borderBottom: "1px solid #EAEAEA" }}>
+        <div className="container">
+          <div className="section-label">Showcase</div>
+          <h2 className="section-title" style={{ marginBottom: "50px" }}>More Projects</h2>
+          
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "32px" }}>
+            {otherProjects.map((p) => {
+              const pSlug = p.name.toLowerCase().replace(/ /g, "-").replace(/&/g, "and");
+              return (
+                <Link 
+                  key={p.id}
+                  to={`/project/${pSlug}`}
+                  className="work-item"
+                  data-cursor="case-study"
+                  style={{ textDecoration: "none", color: "inherit", display: "block" }}
+                >
+                  <div className="work-item-card" style={{ border: "1px solid #EAEAEA", borderRadius: "12px", overflow: "hidden", background: "#FFFFFF", transition: "all 0.6s var(--ease-out-expo)" }}>
+                    <div className="work-item-image" style={{ aspectRatio: "1.5", overflow: "hidden", position: "relative" }}>
+                      <img 
+                        src={p.image} 
+                        alt={p.name} 
+                        style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 1.2s var(--ease-out-expo)" }}
+                      />
+                      <div className="work-item-overlay" style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 65%, rgba(0,0,0,0.01) 100%)" }} />
+                    </div>
+
+                    <div className="work-item-info" style={{ padding: "24px" }}>
+                      <div className="work-item-meta" style={{ marginBottom: "10px" }}>
+                        <span className="work-item-tag" style={{ fontSize: "10px", padding: "4px 12px", background: "#F5F5F5", borderRadius: "100px", color: "#525252" }}>
+                          {p.industry}
+                        </span>
+                      </div>
+                      <h3 className="work-item-name" style={{ fontSize: "1.25rem", fontWeight: "600", marginBottom: "8px", letterSpacing: "-0.01em" }}>{p.name}</h3>
+                      <p className="work-item-desc" style={{ fontSize: "0.875rem", color: "#6B6B6B", lineHeight: "1.5", marginBottom: "20px" }}>{p.description}</p>
+                      
+                      <div className="work-item-btn" style={{ fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                        View Case Study <span style={{ marginLeft: "4px" }}>→</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
