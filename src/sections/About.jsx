@@ -65,7 +65,7 @@ const timelineData = [
   {
     stage: "05",
     title: "Future Vision",
-    description: "Pioneering high-speed web apps, edge-rendered frameworks, and performance optimizations. We aim to keep positioning Kochi Infopark as a global center of software design excellence."
+    description: "Pioneering high-speed web apps, edge rendered frameworks, and performance optimizations. We aim to keep positioning Kochi Infopark as a global center of software design excellence."
   }
 ];
 
@@ -77,7 +77,7 @@ export default function About() {
   return (
     <section ref={containerRef} className="about" id="about" style={{ padding: "120px 0" }}>
       <div className="container">
-        
+
         {/* Upper Grid Layout */}
         <div className="about-inner" style={{ marginBottom: "100px" }}>
           <motion.div
@@ -154,9 +154,9 @@ export default function About() {
         <div style={{ borderTop: "1px solid #EAEAEA", paddingTop: "80px" }}>
           <div className="section-label">Our Story</div>
           <h2 className="section-title" style={{ marginBottom: "50px" }}>Journey Milestones</h2>
-          
+
           <div style={{ display: "grid", gridTemplateColumns: "0.8fr 1.2fr", gap: "60px" }} className="about-inner">
-            
+
             {/* Left Timeline Stages Select */}
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               {timelineData.map((item, index) => (
@@ -187,11 +187,11 @@ export default function About() {
             </div>
 
             {/* Right Story Stage Details */}
-            <div 
-              style={{ 
-                background: "#FAFAFA", 
-                border: "1px solid #EAEAEA", 
-                borderRadius: "12px", 
+            <div
+              style={{
+                background: "#FAFAFA",
+                border: "1px solid #EAEAEA",
+                borderRadius: "12px",
                 padding: "48px",
                 display: "flex",
                 flexDirection: "column",
