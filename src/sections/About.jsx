@@ -55,12 +55,12 @@ const timelineData = [
   {
     stage: "03",
     title: "Projects Delivered",
-    description: "Successfully shipped over 20+ custom products across active domains, from advanced healthcare schedulers to contemporary online shopping stores, with high performance outcomes."
+    description: "Successfully shipped over 23+ custom products across active domains, from advanced healthcare schedulers to contemporary online shopping stores, with high performance outcomes."
   },
   {
     stage: "04",
     title: "Industries Served",
-    description: "Deepened domain expertise across 8+ specialized sectors, including health networks, education dashboards, luxury culinary sites, fashion lookbooks, and technical coding platforms."
+    description: "Deepened domain expertise across 12+ specialized sectors, including health networks, e-commerce, luxury audio brands, contemporary fashion lookbooks, trip planning systems, education portals, real estate, and restaurant software."
   },
   {
     stage: "05",
@@ -89,7 +89,7 @@ export default function About() {
             <div className="section-label">Who We Are</div>
             <h2 className="section-title" style={{ letterSpacing: "-0.03em" }}>Architecting Digital Frontiers.</h2>
             <p className="section-description">
-              Intel Euro Solutions is a software development company based in Kochi Infopark, delivering modern digital experiences across healthcare, education, e-commerce, creative arts, and technology industries.
+              Intel Euro Solutions is a software development company based in Kochi Infopark, delivering modern digital experiences across healthcare, e-commerce, audio brands, creative arts, and travel & tourism industries.
             </p>
             <p className="section-description" style={{ marginTop: "16px" }}>
               We partner with visionary businesses to transform raw ideas into performant, clean, and highly scalable software solutions.
@@ -98,7 +98,7 @@ export default function About() {
             <div className="about-stats">
               <div className="stat">
                 <div className="stat-number">
-                  <AnimatedCounter value="8" suffix="+" />
+                  <AnimatedCounter value="12" suffix="+" />
                 </div>
                 <div className="stat-label">
                   Industries<br />Served
@@ -106,7 +106,7 @@ export default function About() {
               </div>
               <div className="stat">
                 <div className="stat-number">
-                  <AnimatedCounter value="20" suffix="+" />
+                  <AnimatedCounter value="23" suffix="+" />
                 </div>
                 <div className="stat-label">
                   Projects<br />Delivered

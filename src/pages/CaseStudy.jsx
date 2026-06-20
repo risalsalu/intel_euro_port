@@ -13,23 +13,144 @@ export default function CaseStudy() {
 
   const otherProjects = projectsData.filter((p) => {
     return p.slug !== slug;
-  }).slice(0, 3);
+  });
 
   useEffect(() => {
     if (!project) {
       return;
     }
 
-    // Dynamic SEO Title and Metadata Update
-    document.title = `${project.name} Case Study — Intel Euro Solutions`;
-    
+    // Backup original document title and description
+    const originalTitle = document.title;
     const metaDescription = document.querySelector('meta[name="description"]');
+    const originalDescription = metaDescription ? metaDescription.getAttribute("content") : "";
+
+    // Helper to set or create meta tag
+    const setMetaTag = (attrName, attrValue, contentValue) => {
+      let element = document.querySelector(`meta[${attrName}="${attrValue}"]`);
+      let created = false;
+      if (!element) {
+        element = document.createElement("meta");
+        element.setAttribute(attrName, attrValue);
+        document.head.appendChild(element);
+        created = true;
+      }
+      const previousValue = element.getAttribute("content");
+      element.setAttribute("content", contentValue);
+      return { element, previousValue, created };
+    };
+
+    // Helper to set or create link tag
+    const setLinkTag = (relValue, hrefValue) => {
+      let element = document.querySelector(`link[rel="${relValue}"]`);
+      let created = false;
+      if (!element) {
+        element = document.createElement("link");
+        element.setAttribute("rel", relValue);
+        document.head.appendChild(element);
+        created = true;
+      }
+      const previousValue = element.getAttribute("href");
+      element.setAttribute("href", hrefValue);
+      return { element, previousValue, created };
+    };
+
+    // Update document title
+    document.title = `${project.name} Case Study — Intel Euro Solutions`;
+
+    // Update description
     if (metaDescription) {
       metaDescription.setAttribute("content", `${project.name} case study by Intel Euro Solutions. Detail on strategy, design system, development process, and results.`);
     }
 
+    // Set OG Tags
+    const ogUrl = setMetaTag("property", "og:url", `https://inteleurosolutions.com/project/${slug}`);
+    const ogTitle = setMetaTag("property", "og:title", `${project.name} Case Study — Intel Euro Solutions`);
+    const ogDesc = setMetaTag("property", "og:description", `${project.name} case study: Strategy, design system, and custom development process by Intel Euro Solutions.`);
+    const ogImage = setMetaTag("property", "og:image", `https://inteleurosolutions.com${project.image}`);
+
+    // Set Twitter Tags
+    const twitterCard = setMetaTag("property", "twitter:card", "summary_large_image");
+    const twitterUrl = setMetaTag("property", "twitter:url", `https://inteleurosolutions.com/project/${slug}`);
+    const twitterTitle = setMetaTag("property", "twitter:title", `${project.name} Case Study — Intel Euro Solutions`);
+    const twitterDesc = setMetaTag("property", "twitter:description", `${project.name} case study by Intel Euro Solutions.`);
+    const twitterImage = setMetaTag("property", "twitter:image", `https://inteleurosolutions.com${project.image}`);
+
+    // Set Canonical link
+    const canonical = setLinkTag("canonical", `https://inteleurosolutions.com/project/${slug}`);
+
+    // Set Structured Data JSON-LD
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": `${project.name} Case Study — Intel Euro Solutions`,
+      "description": project.overview,
+      "image": `https://inteleurosolutions.com${project.image}`,
+      "url": `https://inteleurosolutions.com/project/${slug}`,
+      "publisher": {
+        "@type": "Organization",
+        "name": "Intel Euro Solutions",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://inteleurosolutions.com/favicon.svg"
+        }
+      }
+    };
+    const scriptId = "case-study-structured-data";
+    let scriptTag = document.getElementById(scriptId);
+    if (!scriptTag) {
+      scriptTag = document.createElement("script");
+      scriptTag.id = scriptId;
+      scriptTag.type = "application/ld+json";
+      document.head.appendChild(scriptTag);
+    }
+    scriptTag.innerHTML = JSON.stringify(structuredData);
+
     // Scroll to top on route change
     window.scrollTo(0, 0);
+
+    // Cleanup metadata on unmount or route change
+    return () => {
+      document.title = originalTitle;
+      if (metaDescription) {
+        metaDescription.setAttribute("content", originalDescription);
+      }
+
+      // Remove created metadata or restore previous values
+      const cleanMeta = (metaInfo) => {
+        if (!metaInfo) return;
+        if (metaInfo.created) {
+          metaInfo.element.remove();
+        } else if (metaInfo.previousValue !== null) {
+          metaInfo.element.setAttribute("content", metaInfo.previousValue);
+        }
+      };
+
+      const cleanLink = (linkInfo) => {
+        if (!linkInfo) return;
+        if (linkInfo.created) {
+          linkInfo.element.remove();
+        } else if (linkInfo.previousValue !== null) {
+          linkInfo.element.setAttribute("href", linkInfo.previousValue);
+        }
+      };
+
+      cleanMeta(ogUrl);
+      cleanMeta(ogTitle);
+      cleanMeta(ogDesc);
+      cleanMeta(ogImage);
+      cleanMeta(twitterCard);
+      cleanMeta(twitterUrl);
+      cleanMeta(twitterTitle);
+      cleanMeta(twitterDesc);
+      cleanMeta(twitterImage);
+      cleanLink(canonical);
+
+      const scriptElement = document.getElementById(scriptId);
+      if (scriptElement) {
+        scriptElement.remove();
+      }
+    };
   }, [slug, project]);
 
   if (!project) return <NotFound />;

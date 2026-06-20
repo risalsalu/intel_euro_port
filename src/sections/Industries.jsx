@@ -11,7 +11,11 @@ const industriesList = [
   { id: "ind-5", name: "Wedding Digital", description: "Custom digital invitations and RSVP management.", filter: "Wedding Invitation Digital" },
   { id: "ind-6", name: "Creative Arts", description: "Fine art, calligraphy, and luxury showrooms.", filter: "Calligraphy & Artwork" },
   { id: "ind-7", name: "Fashion", description: "Bespoke lookbooks and campaign storytelling.", filter: "Fashion & Lifestyle" },
-  { id: "ind-8", name: "Technology", description: "Curriculums, SaaS, and platform dashboards.", filter: "Technology" }
+  { id: "ind-8", name: "Speaker Brand", description: "Audio showcases, elegant presentation, and luxury shopping.", filter: "Consumer Electronics / Speaker Brand" },
+  { id: "ind-9", name: "Travel & Tourism", description: "Trip planning, tour guides, and vehicle rentals.", filter: "Travel & Tourism" },
+  { id: "ind-10", name: "Education Institute", description: "Academic programs, admissions, and student success portals.", filter: "Education Institute" },
+  { id: "ind-11", name: "Real Estate & Builders", description: "Residential, commercial property listings, and builder showcases.", filter: "Real Estate & Builders" },
+  { id: "ind-12", name: "Restaurant Software / POS & Billing", description: "Digital menus, live table ordering, POS billing, and queue management.", filter: "Restaurant Software / POS & Billing" }
 ];
 
 export default function Industries() {

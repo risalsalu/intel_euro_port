@@ -70,6 +70,42 @@ export const projectsData = [
     description: "A premium product showcase website for a modern speaker brand, designed to highlight high-quality audio products through immersive visuals, elegant product presentation, smooth interactions, and a luxury shopping experience.",
     image: "/images/projects/thamur.png",
     website: "https://thamur.netlify.app/"
+  },
+  {
+    id: "09",
+    name: "Royal Travels",
+    slug: "royal-travels",
+    industry: "Travel & Tourism",
+    description: "A modern travel and tourism platform designed to simplify trip planning, tour package exploration, vehicle rentals, and travel bookings. The website delivers a premium user experience with engaging visuals, intuitive navigation, and a responsive interface tailored for travelers.",
+    image: "/images/projects/royal-travels.png",
+    website: "https://royaltravels-psi.vercel.app/"
+  },
+  {
+    id: "10",
+    name: "Elevate Academy",
+    slug: "elevate-academy",
+    industry: "Education Institute",
+    description: "A modern educational institution website designed to provide students with an engaging digital experience. The platform showcases academic programs, admissions, faculty, campus facilities, and student success while encouraging inquiries through a clean, responsive, and user-friendly interface.",
+    image: "/images/projects/elevate-academy.png",
+    website: "https://elevate-academy-enqv.vercel.app/"
+  },
+  {
+    id: "11",
+    name: "Maison Estate",
+    slug: "maison-estate",
+    industry: "Real Estate & Builders",
+    description: "Maison Estate is a premium real estate and builders platform designed to showcase residential and commercial properties through a modern digital experience. The platform highlights projects, property listings, construction services, and company expertise while providing an intuitive experience for prospective buyers and investors.",
+    image: "/images/projects/maison-estate.png",
+    website: "https://maison-estate.lovable.app/"
+  },
+  {
+    id: "12",
+    name: "TABLO",
+    slug: "tablo",
+    industry: "Restaurant Software / POS & Billing",
+    description: "TABLO is a modern restaurant management platform that streamlines restaurant operations from table ordering to billing. It provides a seamless digital workflow for restaurants, improving order management, customer experience, and billing efficiency.",
+    image: "/images/projects/tablo.png",
+    website: "https://hello-you-there-0551.lovable.app/"
   }
 ];
 

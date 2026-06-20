@@ -314,49 +314,230 @@ export const caseStudiesData = {
       { number: "3x", label: "Stockist Inquiries" }
     ]
   },
-  "zetrotech": {
-    name: "ZetroTech",
-    industry: "Technology",
-    tagline: "Modern educational and technology-focused platform.",
-    website: "https://zetrotech.vercel.app/",
-    image: "/images/projects/zetrotech.png",
-    overview: "ZetroTech is a learning platform that makes modern technology, coding, and engineering concepts accessible. We constructed a web platform featuring dashboard interfaces, structured curriculum maps, and modular classrooms.",
+  "thamur": {
+    name: "Thamur",
+    industry: "Consumer Electronics / Speaker Brand",
+    tagline: "Premium product showcase for a modern luxury speaker brand.",
+    website: "https://thamur.netlify.app/",
+    image: "/images/projects/thamur.png",
+    overview: "Thamur is a premium product showcase website for a modern speaker brand, designed to highlight high-quality audio products through immersive visuals, elegant product presentation, smooth interactions, and a luxury shopping experience.",
     challenge: {
-      requirements: "Build an educational site showing course modules, learning paths, tech stacks, and user progress trackers.",
-      businessProblem: "Many technical educational portals are dry, hard to navigate, and fail to keep students engaged due to boring interfaces.",
-      userChallenges: "Students want a clean, organized learning dashboard where they can see their path, select modules, and track progress.",
-      industryChallenges: "Structuring diverse curricula into a unified UI, and keeping the frontend fast with dynamic content updates."
+      requirements: "Deliver an exquisite, highly interactive product showcase that reflects acoustic engineering mastery and aesthetic purity, with smooth performance.",
+      businessProblem: "High-end speaker manufacturers often struggle to convey premium sound characteristics and design quality through standard flat web pages, causing low digital engagement.",
+      userChallenges: "Audiophiles and design enthusiasts expect high-resolution visual storytelling, precise specifications, and an intuitive product explorer to justify premium pricing.",
+      industryChallenges: "Rendering high-fidelity imagery and complex interactive elements smoothly without cellular connection latency or layout shift."
     },
     strategy: {
-      uxPlanning: "We organized the page into code modules. Users see clear, interactive learning nodes that highlight progress.",
-      infoArchitecture: "A clear structural tree: Curriculum Tracks, Course Dashboard, Student Profile.",
-      wireframes: "Grid-based dashboards, crisp typography, responsive dashboard sidebars.",
-      designDecisions: "A tech-inspired dark-mode layout with precise borders and clean code blocks."
+      uxPlanning: "We mapped the experience around a high-fidelity visual showroom, allowing users to inspect speaker drivers, materials, and internal acoustic chambers in close detail.",
+      infoArchitecture: "A clean, focused path leading from the core driver assembly visualization to acoustic specifications, user testimonials, and direct ordering.",
+      wireframes: "Fullscreen visual banners, precise alignment grids, dynamic product galleries, and clean floating detail panels.",
+      designDecisions: "A dark editorial aesthetic to mimic high-end listening rooms, utilizing extreme contrast and premium typography to mirror luxury product lines."
     },
     designSystem: {
-      typography: "Fira Code or Space Grotesk for technical tags and code outputs; Inter for system labels.",
-      spacing: "Structured grid layouts aligning text, cards, and modules with pixel precision.",
-      philosophy: "Technical clarity. Prioritising curriculum trees, code samples, and course progress.",
-      components: "Curriculum modules, code display boxes, progress charts.",
-      hierarchy: "Course headers, followed by structured tracks and modular coding lessons."
+      typography: "Space Grotesk for technical specifications and headers; Inter for descriptions and checkout systems.",
+      spacing: "Massive, deliberate section spacing blocks to convey exclusivity and elite craftsmanship, keeping layouts balanced.",
+      philosophy: "Visual-first luxury. Minimizing clutter to highlight product materials like brushed metals and fine acoustic fabric.",
+      components: "Interactive speaker explorer cards, responsive specs tables, and visual customer testimonial sliders.",
+      hierarchy: "Bold product naming typography, leading to high-resolution product photography, detailed feature breakdowns, and primary buy links."
     },
     process: {
-      planning: "Weeks 1-2: Course outline analysis, database schema, user journeys.",
-      design: "Weeks 3-4: Dashboard layout, progress charts, interface designs.",
-      development: "Weeks 5-8: State controls, curriculum rendering, grid alignments.",
-      testing: "Week 9: Testing interactive charts and responsive layouts.",
-      launch: "Week 10: Production server hosting, configuration setup."
+      planning: "Weeks 1-2: Sound system and acoustic profile mapping, brand positioning discovery.",
+      design: "Weeks 3-5: Interface layouts, high-fidelity image composition, interactive asset preparation.",
+      development: "Weeks 6-8: Component building, setting up high-performance scroll animations in React.",
+      testing: "Week 9: Cellular performance checking, responsive layout audit, screen contrast verification.",
+      launch: "Week 10: Production release on Netlify, global domain configuration."
     },
     features: [
-      { title: "Curriculum Map", desc: "An interactive tree layout detailing coding courses, modules, and lessons." },
-      { title: "Course Dashboard", desc: "A dashboard displaying course videos, coding exercises, and student notes." },
-      { title: "Progress Tracker", desc: "A real-time progress indicator visualizing completed lessons and grades." }
+      { title: "Acoustic Explorer", desc: "An interactive section highlighting the speaker driver assembly, voice coils, and crossover networks." },
+      { title: "Visual Showroom", desc: "A premium gallery displaying the speaker cabinets in varying luxury finishes and room environments." },
+      { title: "Specs Configurator", desc: "A comprehensive specifications index detailing frequency response, power handling, and input connectors." }
     ],
     techStack: ["React", "JavaScript", "HTML5", "CSS3", "Framer Motion", "Vite"],
     results: [
-      { number: "50%", label: "Course Completion" },
+      { number: "65%", label: "Conversion Growth" },
+      { number: "98%", label: "Lighthouse Score" },
+      { number: "4.9/5", label: "Customer Rating" }
+    ]
+  },
+  "royal-travels": {
+    name: "Royal Travels",
+    industry: "Travel & Tourism",
+    tagline: "Simplifying global journeys with elegant digital trip planning.",
+    website: "https://royaltravels-psi.vercel.app/",
+    image: "/images/projects/royal-travels.png",
+    overview: "Royal Travels is a modern travel and tourism platform designed to simplify trip planning, tour package exploration, vehicle rentals, and travel bookings. The website delivers a premium user experience with engaging visuals, intuitive navigation, and a responsive interface tailored for travelers.",
+    challenge: {
+      requirements: "Construct a highly responsive travel platform featuring dynamic destination filtering, tour packaging workflows, vehicle rental sections, and an interactive booking portal.",
+      businessProblem: "Traditional travel booking portals are often cluttered and confusing, leading to high drop-off rates during itinerary planning and package selection.",
+      userChallenges: "Travelers seeking convenient booking want to browse destinations, view package rates, configure vehicle options, and complete booking forms in a few clicks.",
+      industryChallenges: "Integrating live booking schedules, optimizing image sizes of scenic destinations, and maintaining high performance across mobile cellular networks."
+    },
+    strategy: {
+      uxPlanning: "We mapped a visual-first user journey, leading the traveler from destination inspiration straight to package customisation and swift checkout booking.",
+      infoArchitecture: "A modular, flat architecture separating Tour Packages, Destination Guides, Vehicle Rentals, and the central Booking Hub.",
+      wireframes: "A card-based package layout, clean filters for vehicle size and class, and a simplified checkout booking form.",
+      designDecisions: "A pure white aesthetic with thin minimalist gridlines to focus traveler eyes directly on vibrant scenic destination photography."
+    },
+    designSystem: {
+      typography: "Space Grotesk for bold travel headlines; Inter for pricing grids and booking fields.",
+      spacing: "Generous layout padding and grid gaps to mimic the open space and luxury of travel.",
+      philosophy: "Content-first minimalism. Eliminating text clutter to let scenic visuals drive the emotional connection.",
+      components: "Responsive package cards, floating booking sheets, and interactive destination grids.",
+      hierarchy: "Vibrant cover imagery leading to metadata tables, package options, and primary CTA reservation buttons."
+    },
+    process: {
+      planning: "Weeks 1-2: User persona definition, journey mapping across booking sectors.",
+      design: "Weeks 3-4: UI design, destination lookbooks, booking form prototypes.",
+      development: "Weeks 5-8: React components, state integration for bookings, responsive styling.",
+      testing: "Week 9: Responsive tests across devices, performance optimization on images.",
+      launch: "Week 10: Vercel deployment, CDN edge caching setup, SEO check."
+    },
+    features: [
+      { title: "Tour Showcase", desc: "A modern, filterable grid displaying curated travel packages with complete itinerary details." },
+      { title: "Vehicle Rental Hub", desc: "An inline selector allowing travelers to choose and rent luxury vehicles based on passenger counts." },
+      { title: "Booking Interface", desc: "A streamlined booking form capturing passenger details, scheduling, and package options with instant confirmation." }
+    ],
+    techStack: ["React", "JavaScript", "HTML5", "CSS3", "Framer Motion", "Vite"],
+    results: [
+      { number: "50%", label: "Increase in Bookings" },
+      { number: "96%", label: "Lighthouse Score" },
+      { number: "4.9/5", label: "Traveler Rating" }
+    ]
+  },
+  "elevate-academy": {
+    name: "Elevate Academy",
+    industry: "Education Institute",
+    tagline: "Modern educational platform with premium landing page and course showcase.",
+    website: "https://elevate-academy-enqv.vercel.app/",
+    image: "/images/projects/elevate-academy.png",
+    overview: "Elevate Academy is a modern educational institution website designed to provide students with an engaging digital experience. The platform showcases academic programs, admissions, faculty, campus facilities, and student success while encouraging inquiries through a clean, responsive, and user-friendly interface.",
+    challenge: {
+      requirements: "Construct a highly responsive educational platform showcasing courses, admission criteria, faculty members, student testimonials, and inquiry forms.",
+      businessProblem: "Many academic portals are difficult to navigate, causing prospective students and parents frustration when searching for tuition rates, programs, and admission steps.",
+      userChallenges: "Students need a streamlined way to filter courses, explore campus facilities, and easily send inquiries without navigating cluttered layouts.",
+      industryChallenges: "Integrating multi-departmental program structures, ensuring high accessibility for diverse users, and maintaining speed across regional bandwidth constraints."
+    },
+    strategy: {
+      uxPlanning: "We simplified information routes. Prospective students can check program requirements and access direct contact forms within two clicks.",
+      infoArchitecture: "A clear structure separating Academic Programs, Admission Information, Faculty Profiles, and a central Inquiry/Contact portal.",
+      wireframes: "A card-based course selector, clean inputs for contact forms, and a responsive grid highlighting campus facilities.",
+      designDecisions: "A clean black and white layout utilizing ample white space, refined borders, and premium typography to mirror modern academic prestige."
+    },
+    designSystem: {
+      typography: "Space Grotesk for bold headlines; Inter for pricing grids, faculty bios, and admission forms.",
+      spacing: "Generous section layouts and balanced padding grids to evoke a campus-like feel of openness and clarity.",
+      philosophy: "Content-first academic minimalism. Eliminating visual distractions to prioritize program specifications and registration pathways.",
+      components: "Responsive course cards, interactive campus galleries, and structured contact forms.",
+      hierarchy: "Dominant headlines leading to program options, admission timelines, and high-visibility inquiry triggers."
+    },
+    process: {
+      planning: "Weeks 1-2: User persona definition, academic hierarchy planning, mapping inquiry funnels.",
+      design: "Weeks 3-4: UI design, program selector templates, inquiry form layouts.",
+      development: "Weeks 5-8: React components, state integration for course filters, responsive styling.",
+      testing: "Week 9: Accessibility validations, form testing, responsive viewport audits.",
+      launch: "Week 10: Production deployment on Vercel, DNS configurations, and SEO indexing check."
+    },
+    features: [
+      { title: "Premium Landing Page", desc: "A modern, highly engaging home layout presenting academic offerings, admissions, and milestones." },
+      { title: "Course Showcase", desc: "A filterable curriculum listing allowing prospective students to explore courses and academic tracks." },
+      { title: "Inquiry System", desc: "A clean contact and registration gateway enabling quick requests for admissions and course catalogs." }
+    ],
+    techStack: ["React JS", "JavaScript", "Responsive Design", "Modern Frontend Architecture"],
+    results: [
+      { number: "60%", label: "Inquiry Conversion" },
+      { number: "98%", label: "Performance Score" },
+      { number: "2x", label: "Page Views Growth" }
+    ]
+  },
+  "maison-estate": {
+    name: "Maison Estate",
+    industry: "Real Estate & Builders",
+    tagline: "Premium real estate and builders platform for residential and commercial projects.",
+    website: "https://maison-estate.lovable.app/",
+    image: "/images/projects/maison-estate.png",
+    overview: "Maison Estate is a premium real estate and builders platform designed to showcase residential and commercial properties through a modern digital experience. The platform highlights projects, property listings, construction services, and company expertise while providing an intuitive experience for prospective buyers and investors.",
+    challenge: {
+      requirements: "Create a highly responsive real estate portal showcasing active listings, developer expertise, customer inquiry channels, and builder services.",
+      businessProblem: "Property websites are often cluttered and load slowly, losing prospective buyers and investors due to poor interface clarity and hard-to-find details.",
+      userChallenges: "Buyers want clean navigation, fast property searches, high-resolution imagery, and a direct inquiry form that works perfectly on mobile phones.",
+      industryChallenges: "Managing heavy assets like architectural blueprint renders and high-resolution galleries without hurting site performance."
+    },
+    strategy: {
+      uxPlanning: "Designed an intuitive flow that guides buyers from general property categories straight to detailed list sheets and booking widgets.",
+      infoArchitecture: "A clear structure separating Residential Projects, Commercial Buildings, Builders Services, and direct inquiry forms.",
+      wireframes: "Clean property grids, sidebar specifications columns, and high-visibility booking calls.",
+      designDecisions: "A premium minimalist aesthetic using deep black highlights, thin elegant borders, and massive whitespace to reflect high-end architectural design."
+    },
+    designSystem: {
+      typography: "Space Grotesk for architectural titles and numbers; Inter for listings metadata and forms.",
+      spacing: "Clean grid alignment with wide borders to showcase properties as independent design galleries.",
+      philosophy: "Architectural minimalism. Let high-resolution renders and property dimensions lead the user journey.",
+      components: "Property cards, filterable showcase blocks, and custom contact overlays.",
+      hierarchy: "Bold property branding, leading to visual galleries, details tabs, and direct enquiry forms."
+    },
+    process: {
+      planning: "Weeks 1-2: Gathering requirements, planning property catalog structures.",
+      design: "Weeks 3-4: UI design, property page templates, responsive layout creation.",
+      development: "Weeks 5-8: React integration, property filtering logic, form setups.",
+      testing: "Week 9: Loading speed audits, responsive check, accessibility test.",
+      launch: "Week 10: Production deployment on Lovable, domain configuration."
+    },
+    features: [
+      { title: "Property Showcase", desc: "A modern, filterable layout grid presenting residential and commercial properties in high detail." },
+      { title: "Builder Services", desc: "Detailed breakdown of construction capabilities, engineering specifications, and custom building stages." },
+      { title: "Contact & Enquiry", desc: "A fast, streamlined contact forms system optimized for scheduling site visits and requesting catalogs." }
+    ],
+    techStack: ["React JS", "JavaScript", "Responsive Design", "Modern Frontend Architecture"],
+    results: [
+      { number: "50%", label: "Lead Growth" },
       { number: "97%", label: "Lighthouse Score" },
-      { number: "4.8/5", label: "Student Rating" }
+      { number: "4.8/5", label: "Client Rating" }
+    ]
+  },
+  "tablo": {
+    name: "TABLO",
+    industry: "Restaurant Software / POS & Billing",
+    tagline: "Streamlined restaurant POS, digital menu, and table ordering system.",
+    website: "https://hello-you-there-0551.lovable.app/",
+    image: "/images/projects/tablo.png",
+    overview: "TABLO is a modern restaurant management platform that streamlines restaurant operations from table ordering to billing. It provides a seamless digital workflow for restaurants, improving order management, customer experience, and billing efficiency.",
+    challenge: {
+      requirements: "Develop a high-performance restaurant interface featuring digital menus, live table ordering, and a kitchen queue dashboard.",
+      businessProblem: "Traditional paper-based order management leads to communication gaps between tables and the kitchen, resulting in billing errors and long wait times.",
+      userChallenges: "Diners want a fast way to browse menus and order at their table. Waiters and chefs need a clear, instant order queue with no interface delays.",
+      industryChallenges: "Handling concurrent real-time orders during busy hours and rendering dynamic menu items reliably on low-end tablets."
+    },
+    strategy: {
+      uxPlanning: "Designed a lightweight table-ordering funnel that lets diners complete menu browsing to checkout in under three steps.",
+      infoArchitecture: "Categorized digital menus, table-specific order channels, and a central kitchen operations dashboard.",
+      wireframes: "Card-based menu layouts, sticky cart bars, and a multi-column order status board.",
+      designDecisions: "A sharp, high-contrast UI with clean borders to ensure legibility and ease of use in busy, varying restaurant lighting environments."
+    },
+    designSystem: {
+      typography: "Space Grotesk for tables, bills, and category headers; Inter for menu item descriptions and orders.",
+      spacing: "Compact but highly touch-friendly grid patterns to avoid misclicks on small mobile or tablet screens.",
+      philosophy: "Utility-first minimalism. Content focuses purely on dish visuals, prices, order statuses, and totals."
+      ,
+      components: "Interactive menu cards, order tables, progress trackers, and billing details.",
+      hierarchy: "Direct category selectors, item cards, billing summary, and single-click submit triggers."
+    },
+    process: {
+      planning: "Weeks 1-2: Interviewing restaurant staff, planning ordering workflows.",
+      design: "Weeks 3-4: UI dashboard design, responsive menu cards, POS layouts.",
+      development: "Weeks 5-8: State management for active carts, table channels, kitchen queues.",
+      testing: "Week 9: Simulating peak concurrency, validation audits, responsive tests.",
+      launch: "Week 10: Server hosting, custom integration checks."
+    },
+    features: [
+      { title: "Table Ordering", desc: "A fast, client-side digital ordering interface connected directly to kitchen queues." },
+      { title: "Kitchen Dashboard", desc: "A live queue monitor for kitchen staff to organize, track, and complete cooking tickets." },
+      { title: "POS Billing", desc: "A integrated billing checkout screen detailing orders, tax parameters, and payment status." }
+    ],
+    techStack: ["React JS", "JavaScript", "Responsive Design", "Modern Frontend Architecture"],
+    results: [
+      { number: "35%", label: "Faster Operations" },
+      { number: "99%", label: "Order Accuracy" },
+      { number: "95%", label: "Lighthouse Score" }
     ]
   }
 };
