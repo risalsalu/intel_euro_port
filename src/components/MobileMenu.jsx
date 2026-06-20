@@ -1,13 +1,33 @@
 import React from "react";
+import { useLocation, Link } from "react-router-dom";
 
 export default function MobileMenu({ isOpen, onClose }) {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
+  const renderLink = (hash, label) => {
+    if (isHome) {
+      return (
+        <a href={`#${hash}`} className="mobile-link" onClick={onClose}>
+          {label}
+        </a>
+      );
+    } else {
+      return (
+        <Link to={`/#${hash}`} className="mobile-link" onClick={onClose}>
+          {label}
+        </Link>
+      );
+    }
+  };
+
   return (
     <div className={`mobile-menu ${isOpen ? "active" : ""}`}>
-      <a href="#about" className="mobile-link" onClick={onClose}>About</a>
-      <a href="#services" className="mobile-link" onClick={onClose}>Services</a>
-      <a href="#work" className="mobile-link" onClick={onClose}>Work</a>
-      <a href="#process" className="mobile-link" onClick={onClose}>Process</a>
-      <a href="#contact" className="mobile-link" onClick={onClose}>Contact</a>
+      {renderLink("about", "About")}
+      {renderLink("services", "Services")}
+      {renderLink("work", "Work")}
+      {renderLink("process", "Process")}
+      {renderLink("contact", "Contact")}
     </div>
   );
 }

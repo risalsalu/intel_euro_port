@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { caseStudiesData } from "../data/caseStudiesData";
 import { projectsData } from "../data/portfolioData";
 import MagneticButton from "../components/MagneticButton";
+import NotFound from "./NotFound";
 
 export default function CaseStudy() {
   const { slug } = useParams();
@@ -11,13 +12,11 @@ export default function CaseStudy() {
   const project = caseStudiesData[slug];
 
   const otherProjects = projectsData.filter((p) => {
-    const pSlug = p.name.toLowerCase().replace(/ /g, "-").replace(/&/g, "and");
-    return pSlug !== slug;
+    return p.slug !== slug;
   }).slice(0, 3);
 
   useEffect(() => {
     if (!project) {
-      navigate("/"); // Redirect to home if project not found
       return;
     }
 
@@ -31,9 +30,9 @@ export default function CaseStudy() {
 
     // Scroll to top on route change
     window.scrollTo(0, 0);
-  }, [slug, project, navigate]);
+  }, [slug, project]);
 
-  if (!project) return null;
+  if (!project) return <NotFound />;
 
   return (
     <motion.div
@@ -290,11 +289,10 @@ export default function CaseStudy() {
           
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "32px" }}>
             {otherProjects.map((p) => {
-              const pSlug = p.name.toLowerCase().replace(/ /g, "-").replace(/&/g, "and");
               return (
                 <Link 
                   key={p.id}
-                  to={`/project/${pSlug}`}
+                  to={`/project/${p.slug}`}
                   className="work-item"
                   data-cursor="case-study"
                   style={{ textDecoration: "none", color: "inherit", display: "block" }}

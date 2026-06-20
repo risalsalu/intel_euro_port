@@ -121,11 +121,10 @@ export default function Industries() {
                   {relatedProjects.length > 0 ? (
                     <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                       {relatedProjects.map((proj) => {
-                        const slug = proj.name.toLowerCase().replace(/ /g, "-").replace(/&/g, "and");
                         return (
                           <Link
                             key={proj.id}
-                            to={`/project/${slug}`}
+                            to={`/project/${proj.slug}`}
                             style={{ display: "flex", alignItems: "center", gap: "16px", textDecoration: "none", color: "inherit" }}
                             className="work-item"
                           >

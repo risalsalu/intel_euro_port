@@ -2,6 +2,7 @@ export const projectsData = [
   {
     id: "01",
     name: "Gems Health Center",
+    slug: "gems-health-center",
     industry: "Healthcare",
     description: "A modern healthcare platform focused on accessibility, patient trust, and service discovery.",
     image: "/images/projects/gems-health.png",
@@ -10,6 +11,7 @@ export const projectsData = [
   {
     id: "02",
     name: "Restroie",
+    slug: "restroie",
     industry: "Restaurant",
     description: "A premium restaurant website delivering an immersive dining and reservation experience.",
     image: "/images/projects/restroie.png",
@@ -18,6 +20,7 @@ export const projectsData = [
   {
     id: "03",
     name: "Haya Mart",
+    slug: "haya-mart",
     industry: "E-Commerce",
     description: "A modern online shopping platform designed for seamless product discovery and purchasing.",
     image: "/images/projects/haya-mart.png",
@@ -26,6 +29,7 @@ export const projectsData = [
   {
     id: "04",
     name: "MessMate",
+    slug: "messmate",
     industry: "Hostel Food Delivery",
     description: "A food ordering web app for mess owners to seamlessly deliver meals to college hostels.",
     image: "/images/projects/messmate.png",
@@ -34,6 +38,7 @@ export const projectsData = [
   {
     id: "05",
     name: "Ananya Rahul",
+    slug: "ananya-rahul",
     industry: "Wedding Invitation Digital",
     description: "A personalized digital wedding invitation platform designed for memorable celebrations.",
     image: "/images/projects/ananya-rahul.png",
@@ -42,6 +47,7 @@ export const projectsData = [
   {
     id: "06",
     name: "Nuhart",
+    slug: "nuhart",
     industry: "Calligraphy & Artwork",
     description: "A creative portfolio showcasing artistic excellence and handcrafted visual experiences.",
     image: "/images/projects/nuhart.png",
@@ -50,6 +56,7 @@ export const projectsData = [
   {
     id: "07",
     name: "Felora",
+    slug: "felora",
     industry: "Fashion & Lifestyle",
     description: "A modern fashion and lifestyle platform focused on brand storytelling and elegance.",
     image: "/images/projects/felora.png",
@@ -57,11 +64,12 @@ export const projectsData = [
   },
   {
     id: "08",
-    name: "ZetroTech",
-    industry: "Technology",
-    description: "A technology-focused educational platform built to inspire learning and innovation.",
-    image: "/images/projects/zetrotech.png",
-    website: "https://zetrotech.vercel.app/"
+    name: "Thamur",
+    slug: "thamur",
+    industry: "Consumer Electronics / Speaker Brand",
+    description: "A premium product showcase website for a modern speaker brand, designed to highlight high-quality audio products through immersive visuals, elegant product presentation, smooth interactions, and a luxury shopping experience.",
+    image: "/images/projects/thamur.png",
+    website: "https://thamur.netlify.app/"
   }
 ];
 

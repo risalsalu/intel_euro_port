@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useLocation, Link } from "react-router-dom";
 import MagneticButton from "./MagneticButton";
 
 export default function Navbar({ onToggleMenu, isMenuOpen }) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,19 +20,42 @@ export default function Navbar({ onToggleMenu, isMenuOpen }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const renderLink = (hash, label, isCta = false) => {
+    const className = isCta ? "nav-cta" : "nav-link";
+    if (isHome) {
+      return (
+        <a href={`#${hash}`} className={className}>
+          {label}
+        </a>
+      );
+    } else {
+      return (
+        <Link to={`/#${hash}`} className={className}>
+          {label}
+        </Link>
+      );
+    }
+  };
+
   return (
     <nav className={`nav ${isScrolled ? "scrolled" : ""}`}>
       <div className="container nav-inner">
-        <a href="#hero" className="nav-logo">
-          Intel Euro<span> Solutions</span>
-        </a>
+        {isHome ? (
+          <a href="#hero" className="nav-logo">
+            Intel Euro<span> Solutions</span>
+          </a>
+        ) : (
+          <Link to="/" className="nav-logo">
+            Intel Euro<span> Solutions</span>
+          </Link>
+        )}
 
         <div className="nav-links">
-          <a href="#about" className="nav-link">About</a>
-          <a href="#services" className="nav-link">Services</a>
-          <a href="#work" className="nav-link">Work</a>
-          <a href="#process" className="nav-link">Process</a>
-          <a href="#contact" className="nav-cta">Start A Project</a>
+          {renderLink("about", "About")}
+          {renderLink("services", "Services")}
+          {renderLink("work", "Work")}
+          {renderLink("process", "Process")}
+          {renderLink("contact", "Start A Project", true)}
         </div>
 
         <div 

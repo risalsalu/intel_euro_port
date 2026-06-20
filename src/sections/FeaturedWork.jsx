@@ -37,7 +37,7 @@ export default function FeaturedWork() {
   const x = useTransform(scrollYProgress, [0, 1], ["0px", `-${maxScroll}px`]);
 
   return (
-    <section ref={targetRef} className="work-scroll-container" style={{ position: "relative", height: "350vh" }}>
+    <section ref={targetRef} className="work-scroll-container" id="work" style={{ position: "relative", height: "350vh" }}>
       {/* Sticky viewport frame */}
       <div 
         style={{
@@ -71,8 +71,6 @@ export default function FeaturedWork() {
             className="work-horizontal-track"
           >
             {projectsData.map((project) => {
-              // Create dynamic URL slug
-              const slug = project.name.toLowerCase().replace(/ /g, "-").replace(/&/g, "and");
               return (
                 <div 
                   key={project.id} 
@@ -80,7 +78,7 @@ export default function FeaturedWork() {
                   className="horizontal-project-card"
                 >
                   <Link 
-                    to={`/project/${slug}`}
+                    to={`/project/${project.slug}`}
                     className="work-item"
                     data-cursor="case-study"
                     style={{ textDecoration: "none", color: "inherit", display: "block" }}
