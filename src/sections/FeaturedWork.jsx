@@ -21,10 +21,10 @@ export default function FeaturedWork() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <div className="section-label" style={{ color: "var(--nr-teal)", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "16px", fontSize: "0.875rem" }}>
+            <div className="section-label">
               Selected Work
             </div>
-            <h2 className="section-title" style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2.5rem, 4vw, 4rem)", fontWeight: 700, color: "var(--nr-deep-navy)", lineHeight: 1.1, letterSpacing: "-0.02em", margin: 0 }}>
+            <h2 className="section-title" style={{ margin: 0 }}>
               Proof of <br/>Performance.
             </h2>
           </motion.div>
@@ -54,15 +54,15 @@ export default function FeaturedWork() {
                   gridRow: 1,
                   borderRadius: "24px",
                   overflow: "hidden",
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.06)",
+                  boxShadow: "var(--nr-shadow-lg)",
                   position: "relative",
                   aspectRatio: "16/10",
                   backgroundColor: "var(--nr-light-gray)"
                 }}>
                   <Link to={`/project/${project.slug}`} style={{ display: "block", width: "100%", height: "100%" }}>
                     <motion.img 
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                       src={project.image} 
                       alt={project.name} 
                       style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} 
@@ -83,9 +83,10 @@ export default function FeaturedWork() {
                     <span style={{ fontSize: "0.875rem", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--nr-medium-gray)" }}>{project.industry}</span>
                   </div>
                   
-                  <h3 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "16px", lineHeight: 1.2 }}>
-                    <Link to={`/project/${project.slug}`} style={{ color: "inherit", textDecoration: "none" }}>
+                  <h3 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "16px", lineHeight: 1.1, letterSpacing: "-0.03em" }}>
+                    <Link to={`/project/${project.slug}`} className="project-title-link" style={{ color: "inherit", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "12px" }}>
                       {project.name}
+                      <span className="title-arrow" style={{ color: "var(--nr-blue)", fontSize: "0.8em", transition: "transform 0.4s ease" }}>↗</span>
                     </Link>
                   </h3>
                   
@@ -94,8 +95,8 @@ export default function FeaturedWork() {
                   </p>
 
                   <MagneticButton>
-                    <Link to={`/project/${project.slug}`} className="btn-secondary" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 24px", borderRadius: "100px", border: "1px solid var(--nr-light-gray)", color: "var(--nr-deep-navy)", fontWeight: 600 }}>
-                      View Case Study <span style={{ fontSize: "1.2em" }}>→</span>
+                    <Link to={`/project/${project.slug}`} className="btn-secondary">
+                      View Case Study <span className="btn-arrow" style={{ fontSize: "1.2em", marginLeft: "8px" }}>→</span>
                     </Link>
                   </MagneticButton>
                 </div>
@@ -106,8 +107,8 @@ export default function FeaturedWork() {
         
         <div style={{ textAlign: "center" }}>
           <MagneticButton>
-            <Link to="/work" className="btn-secondary" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "16px 40px", borderRadius: "100px", border: "1px solid var(--nr-deep-navy)", background: "transparent", color: "var(--nr-deep-navy)", fontWeight: 600, fontSize: "1.125rem", textDecoration: "none" }}>
-              Explore Our Work <span style={{ fontSize: "1.2em" }}>→</span>
+            <Link to="/work" className="btn-secondary">
+              Explore Our Work <span className="btn-arrow" style={{ fontSize: "1.2em", marginLeft: "8px" }}>→</span>
             </Link>
           </MagneticButton>
         </div>

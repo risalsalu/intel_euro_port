@@ -82,10 +82,10 @@ export default function SolutionsPage() {
       <main style={{ paddingTop: "120px" }}>
         
         {/* Solutions Hero */}
-        <section style={{ padding: "80px 0", background: "var(--nr-soft-white)" }}>
+        <section className="bg-grid-pattern bg-radial-gradient" style={{ padding: "120px 0 80px 0" }}>
           <div className="container">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} style={{ maxWidth: "800px" }}>
-              <div style={{ color: "var(--nr-blue)", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "24px", fontSize: "0.875rem" }}>
+              <div style={{ color: "var(--nr-blue)", fontWeight: 600, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: "24px", fontSize: "0.8125rem" }}>
                 Capabilities
               </div>
               <h1 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(3.5rem, 6vw, 5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", lineHeight: 1.1, letterSpacing: "-0.03em", marginBottom: "32px" }}>
@@ -136,7 +136,7 @@ export default function SolutionsPage() {
 
                     {/* Related Project Card */}
                     {project && (
-                      <div style={{ background: "var(--nr-soft-white)", borderRadius: "24px", padding: "32px", border: "1px solid var(--nr-light-gray)" }}>
+                      <div style={{ background: "var(--nr-white)", borderRadius: "24px", padding: "32px", border: "1px solid var(--nr-light-gray)", boxShadow: "var(--nr-shadow-md)" }}>
                         <div style={{ fontSize: "0.875rem", fontWeight: 600, color: "var(--nr-deep-navy)", marginBottom: "24px", textTransform: "uppercase", letterSpacing: "0.05em" }}>
                           Related Work — {sol.projectLabel}
                         </div>
@@ -165,15 +165,15 @@ export default function SolutionsPage() {
         </section>
 
         {/* Cross-Page CTA */}
-        <section style={{ padding: "120px 0", background: "var(--nr-deep-navy)", textAlign: "center", color: "var(--nr-white)" }}>
-          <div className="container">
-            <h2 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2.5rem, 4vw, 3.5rem)", fontWeight: 700, marginBottom: "32px", letterSpacing: "-0.02em" }}>
+        <section className="bg-grid-pattern-dark" style={{ padding: "120px 0", background: "var(--nr-deep-navy)", textAlign: "center", color: "var(--nr-white)" }}>
+          <div className="container" style={{ position: "relative", zIndex: 2 }}>
+            <h2 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2.5rem, 4vw, 3.5rem)", fontWeight: 700, marginBottom: "48px", letterSpacing: "-0.03em" }}>
               How do we get there?
             </h2>
             <MagneticButton>
-              <Link to="/process" className="btn-primary" style={{ background: "var(--nr-white)", color: "var(--nr-deep-navy)", padding: "16px 40px", borderRadius: "100px", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: "12px", fontSize: "1.125rem", textDecoration: "none" }}>
+              <Link to="/process" className="btn-secondary" style={{ borderColor: "rgba(255,255,255,0.2)", color: "var(--nr-white)" }}>
                 View Our Process
-                <span style={{ fontSize: "1.2em" }}>→</span>
+                <span className="btn-arrow" style={{ fontSize: "1.2em", marginLeft: "8px" }}>→</span>
               </Link>
             </MagneticButton>
           </div>

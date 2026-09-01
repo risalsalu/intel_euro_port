@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/brand/neoriz-logo-primary/logo.svg";
+import logo from "../assets/brand/neoriz-logo-primary.svg";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();

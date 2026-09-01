@@ -52,11 +52,17 @@ export default function WhyChooseUs() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.2 + (idx * 0.1) }}
+                whileHover={{ 
+                  backgroundColor: "rgba(46,49,146,0.15)", 
+                  borderColor: "rgba(0,229,255,0.3)",
+                  y: -4 
+                }}
                 style={{ 
                   background: "rgba(255,255,255,0.03)", 
                   padding: "32px", 
                   borderRadius: "16px",
-                  border: "1px solid rgba(255,255,255,0.05)"
+                  border: "1px solid rgba(255,255,255,0.05)",
+                  transition: "border-color 0.3s ease, background-color 0.3s ease"
                 }}
               >
                 <h3 style={{ fontSize: "1.25rem", fontWeight: 600, color: "var(--nr-white)", marginBottom: "12px" }}>{reason.title}</h3>

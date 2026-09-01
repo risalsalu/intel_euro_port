@@ -64,17 +64,17 @@ export default function WorkPage() {
       <main style={{ paddingTop: "120px", background: "var(--nr-soft-white)", minHeight: "100vh" }}>
         
         {/* Work Hero */}
-        <section style={{ padding: "80px 0 60px 0" }}>
+        <section className="bg-grid-pattern bg-radial-gradient" style={{ padding: "120px 0 80px 0" }}>
           <div className="container">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} style={{ maxWidth: "900px" }}>
-              <div style={{ color: "var(--nr-blue)", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "24px", fontSize: "0.875rem" }}>
+              <div style={{ color: "var(--nr-blue)", fontWeight: 600, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: "24px", fontSize: "0.8125rem" }}>
                 Our Portfolio
               </div>
-              <h1 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(3rem, 7vw, 5.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", lineHeight: 1.05, letterSpacing: "-0.03em", marginBottom: "32px" }}>
+              <h1 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(3.5rem, 7vw, 6rem)", fontWeight: 700, color: "var(--nr-deep-navy)", lineHeight: 1.02, letterSpacing: "-0.04em", marginBottom: "32px" }}>
                 ONE APPROACH.<br />
                 MANY POSSIBILITIES.
               </h1>
-              <p style={{ fontSize: "1.25rem", color: "var(--nr-medium-gray)", lineHeight: 1.6, maxWidth: "600px" }}>
+              <p style={{ fontSize: "1.25rem", color: "var(--nr-medium-gray)", lineHeight: 1.7, maxWidth: "600px", letterSpacing: "0.01em" }}>
                 Every project starts with a different business problem. We build engineered digital experiences tailored for varying industries and objectives.
               </p>
             </motion.div>
@@ -140,13 +140,13 @@ export default function WorkPage() {
         {/* Cross-Page CTA */}
         <section style={{ padding: "120px 0", background: "var(--nr-white)", textAlign: "center" }}>
           <div className="container">
-            <h2 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2.5rem, 4vw, 3.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "32px", letterSpacing: "-0.02em" }}>
+            <h2 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2.5rem, 4vw, 3.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "48px", letterSpacing: "-0.03em" }}>
               Ready to start your project?
             </h2>
             <MagneticButton>
-              <Link to="/contact" className="btn-primary" style={{ background: "var(--nr-deep-navy)", color: "var(--nr-white)", padding: "16px 40px", borderRadius: "100px", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: "12px", fontSize: "1.125rem", textDecoration: "none" }}>
+              <Link to="/contact" className="btn-primary">
                 Start a Project
-                <span style={{ fontSize: "1.2em" }}>→</span>
+                <span className="btn-arrow" style={{ fontSize: "1.2em", marginLeft: "8px" }}>→</span>
               </Link>
             </MagneticButton>
           </div>

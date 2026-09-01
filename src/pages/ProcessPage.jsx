@@ -39,16 +39,16 @@ export default function ProcessPage() {
       <main style={{ paddingTop: "120px", background: "var(--nr-white)" }}>
         
         {/* Process Hero */}
-        <section style={{ padding: "80px 0 120px 0" }}>
+        <section className="bg-grid-pattern bg-radial-gradient" style={{ padding: "80px 0 120px 0" }}>
           <div className="container">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} style={{ maxWidth: "800px" }}>
-              <div style={{ color: "var(--nr-blue)", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "24px", fontSize: "0.875rem" }}>
+              <div style={{ color: "var(--nr-blue)", fontWeight: 600, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: "24px", fontSize: "0.8125rem" }}>
                 Our Methodology
               </div>
-              <h1 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(3.5rem, 6vw, 5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", lineHeight: 1.1, letterSpacing: "-0.03em", marginBottom: "32px" }}>
+              <h1 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(3.5rem, 6vw, 5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", lineHeight: 1.1, letterSpacing: "-0.04em", marginBottom: "32px" }}>
                 How we move from problem to solution.
               </h1>
-              <p style={{ fontSize: "1.25rem", color: "var(--nr-medium-gray)", lineHeight: 1.6 }}>
+              <p style={{ fontSize: "1.25rem", color: "var(--nr-medium-gray)", lineHeight: 1.6, letterSpacing: "0.01em" }}>
                 Our process is designed to eliminate ambiguity. We combine strategic clarity with rigorous technical execution to build platforms that scale.
               </p>
             </motion.div>
@@ -88,7 +88,7 @@ export default function ProcessPage() {
                     
                     {/* Content */}
                     <div style={{ paddingTop: "8px" }}>
-                      <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "16px", lineHeight: 1.2 }}>
+                      <h2 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "16px", lineHeight: 1.1, letterSpacing: "-0.03em" }}>
                         {step.title}
                       </h2>
                       <h3 style={{ fontSize: "1.25rem", color: "var(--nr-teal)", marginBottom: "16px", fontWeight: 600 }}>
@@ -109,13 +109,13 @@ export default function ProcessPage() {
         {/* Cross-Page CTA */}
         <section style={{ padding: "120px 0", background: "var(--nr-soft-white)", textAlign: "center" }}>
           <div className="container">
-            <h2 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2.5rem, 4vw, 3.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "32px", letterSpacing: "-0.02em" }}>
+            <h2 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2.5rem, 4vw, 3.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "48px", letterSpacing: "-0.03em" }}>
               See the results of our process.
             </h2>
             <MagneticButton>
-              <Link to="/work" className="btn-primary" style={{ background: "var(--nr-deep-navy)", color: "var(--nr-white)", padding: "16px 40px", borderRadius: "100px", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: "12px", fontSize: "1.125rem", textDecoration: "none" }}>
+              <Link to="/work" className="btn-primary">
                 Explore Our Work
-                <span style={{ fontSize: "1.2em" }}>→</span>
+                <span className="btn-arrow" style={{ fontSize: "1.2em", marginLeft: "8px" }}>→</span>
               </Link>
             </MagneticButton>
           </div>

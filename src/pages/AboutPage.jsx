@@ -39,13 +39,13 @@ export default function AboutPage() {
       <main style={{ paddingTop: "120px" }}>
         
         {/* 1. Hero */}
-        <section className="about-hero" style={{ padding: "80px 0 120px 0", background: "var(--nr-soft-white)" }}>
+        <section className="about-hero bg-grid-pattern bg-radial-gradient" style={{ padding: "80px 0 120px 0", minHeight: "60vh", display: "flex", alignItems: "center" }}>
           <div className="container">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-              <div style={{ color: "var(--nr-blue)", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "24px", fontSize: "0.875rem" }}>
+              <div style={{ color: "var(--nr-blue)", fontWeight: 600, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: "24px", fontSize: "0.8125rem" }}>
                 Who is NEORIZ?
               </div>
-              <h1 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(3.5rem, 6vw, 6rem)", fontWeight: 700, color: "var(--nr-deep-navy)", lineHeight: 1.05, letterSpacing: "-0.03em", marginBottom: "40px", maxWidth: "900px" }}>
+              <h1 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(3.5rem, 6vw, 6.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", lineHeight: 1.02, letterSpacing: "-0.04em", marginBottom: "40px", maxWidth: "900px" }}>
                 We Build What Businesses <span style={{ background: "var(--nr-gradient-primary)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Move Toward.</span>
               </h1>
             </motion.div>
@@ -147,13 +147,13 @@ export default function AboutPage() {
         {/* Cross-Page CTA */}
         <section style={{ padding: "120px 0", background: "var(--nr-white)", textAlign: "center" }}>
           <div className="container">
-            <h2 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2.5rem, 4vw, 3.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "32px", letterSpacing: "-0.02em" }}>
+            <h2 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2.5rem, 4vw, 3.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "48px", letterSpacing: "-0.03em" }}>
               Ready to see what we can build?
             </h2>
             <MagneticButton>
-              <Link to="/solutions" className="btn-primary" style={{ background: "var(--nr-deep-navy)", color: "var(--nr-white)", padding: "16px 40px", borderRadius: "100px", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: "12px", fontSize: "1.125rem", textDecoration: "none" }}>
+              <Link to="/solutions" className="btn-primary">
                 Explore Our Solutions
-                <span style={{ fontSize: "1.2em" }}>→</span>
+                <span className="btn-arrow" style={{ fontSize: "1.2em", marginLeft: "8px" }}>→</span>
               </Link>
             </MagneticButton>
           </div>

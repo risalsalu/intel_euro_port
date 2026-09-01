@@ -101,6 +101,7 @@ export default function ContactPage() {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.6 }}
         style={{ background: "#FFFFFF", color: "#000000", minHeight: "100vh", paddingTop: "140px", paddingBottom: "100px" }}
+        className="bg-grid-pattern bg-radial-gradient"
       >
         <div className="container">
           
@@ -152,7 +153,7 @@ export default function ContactPage() {
             </div>
 
             {/* Right Column: Form */}
-            <div style={{ background: "var(--nr-soft-white)", border: "1px solid var(--nr-light-gray)", borderRadius: "24px", padding: "48px" }}>
+            <div style={{ background: "var(--nr-white)", border: "1px solid var(--nr-light-gray)", borderRadius: "24px", padding: "48px", boxShadow: "var(--nr-shadow-xl)" }}>
               
               <AnimatePresence mode="wait">
                 {!isSubmitted ? (
@@ -312,7 +313,7 @@ export default function ContactPage() {
                               </>
                             ) : (
                               <>
-                                Submit Inquiry <span style={{ fontSize: "1.2em" }}>→</span>
+                                Submit Inquiry <span className="btn-arrow" style={{ fontSize: "1.2em", marginLeft: "8px" }}>→</span>
                               </>
                             )}
                           </button>

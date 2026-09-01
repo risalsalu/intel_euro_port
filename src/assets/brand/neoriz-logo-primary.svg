@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700&amp;family=Inter:wght@500&amp;display=swap');
+    </style>
+  </defs>
+  <g transform="translate(70, 20)">
+    <polygon points="95,98 95,21 71,5 71,69 5,25 5,38" fill="#00E5FF"/>
+    <polygon points="5,44 5,121 29,137 29,73 95,117 95,104" fill="#2E3192"/>
+  </g>
+  <text x="120" y="190" font-family="'Outfit', system-ui, sans-serif" font-weight="700" font-size="36" fill="#0A192F" letter-spacing="0.05em" text-anchor="middle">NEORIZ</text>
+  <text x="120" y="214" font-family="'Inter', system-ui, sans-serif" font-weight="500" font-size="14" fill="#6B7280" letter-spacing="0.2em" text-anchor="middle">Solutions</text>
+</svg>

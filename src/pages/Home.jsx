@@ -3,7 +3,6 @@ import { AnimatePresence } from "framer-motion";
 import Navbar from "../components/Navbar";
 import MobileMenu from "../components/MobileMenu";
 import CustomCursor from "../components/CustomCursor";
-import Loader from "../components/Loader";
 import Hero from "../sections/Hero";
 import About from "../sections/About";
 import Services from "../sections/Services";
@@ -19,7 +18,6 @@ import { technologiesData } from "../data/portfolioData";
 import useSEO from "../hooks/useSEO";
 
 export default function Home() {
-  const [showLoader, setShowLoader] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -48,7 +46,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (!showLoader && window.location.hash) {
+    if (window.location.hash) {
       const id = window.location.hash.substring(1);
       const element = document.getElementById(id);
       if (element) {
@@ -58,16 +56,10 @@ export default function Home() {
         return () => clearTimeout(timer);
       }
     }
-  }, [showLoader]);
+  }, []);
 
   return (
     <>
-      {/* Intro Loader */}
-      <AnimatePresence>
-        {showLoader && (
-          <Loader onComplete={() => setShowLoader(false)} />
-        )}
-      </AnimatePresence>
 
       {/* Premium custom cursor */}
       <CustomCursor />

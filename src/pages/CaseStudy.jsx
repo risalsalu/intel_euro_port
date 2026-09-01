@@ -108,10 +108,10 @@ export default function CaseStudy() {
       style={{ background: "#FFFFFF", color: "#000000", minHeight: "100vh" }}
     >
       {/* 1. Project Hero */}
-      <section style={{ paddingTop: "120px", paddingBottom: "80px" }}>
-        <div className="container">
-          <Link to="/work" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--nr-medium-gray)", textDecoration: "none", marginBottom: "60px", fontSize: "0.875rem", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-            <span>←</span> Back to Portfolio
+      <section className="bg-grid-pattern" style={{ paddingTop: "140px", paddingBottom: "80px", background: "var(--nr-soft-white)" }}>
+        <div className="container" style={{ position: "relative", zIndex: 2 }}>
+          <Link to="/work" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--nr-medium-gray)", textDecoration: "none", marginBottom: "60px", fontSize: "0.875rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", transition: "color 0.2s" }} onMouseEnter={(e) => e.target.style.color = "var(--nr-deep-navy)"} onMouseLeave={(e) => e.target.style.color = "var(--nr-medium-gray)"}>
+            <span style={{ fontSize: "1.2em" }}>←</span> Back to Portfolio
           </Link>
 
           <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: "60px", alignItems: "end", marginBottom: "60px" }}>
@@ -129,8 +129,8 @@ export default function CaseStudy() {
             <div style={{ textAlign: "right", paddingBottom: "8px" }}>
               {project.website && (
                 <MagneticButton>
-                  <a href={project.website} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "var(--nr-deep-navy)", color: "var(--nr-white)", padding: "16px 32px", borderRadius: "100px", textDecoration: "none", fontWeight: 600, fontSize: "1rem" }}>
-                    View Live Experience <span style={{ fontSize: "1.2em" }}>↗</span>
+                  <a href={project.website} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                    View Live Experience <span className="btn-arrow" style={{ fontSize: "1.2em", marginLeft: "8px" }}>↗</span>
                   </a>
                 </MagneticButton>
               )}
@@ -182,11 +182,11 @@ export default function CaseStudy() {
             {/* Context */}
             {project.overview && (
               <div style={{ display: "grid", gridTemplateColumns: "100px 1fr", gap: "40px" }}>
-                <div style={{ fontSize: "0.875rem", color: "var(--nr-blue)", fontWeight: 600, borderTop: "2px solid var(--nr-blue)", paddingTop: "12px" }}>
+                <div style={{ fontSize: "0.875rem", color: "var(--nr-blue)", fontWeight: 600, borderTop: "2px solid var(--nr-blue)", paddingTop: "12px", letterSpacing: "0.1em", textTransform: "uppercase" }}>
                   01 —<br/>Context
                 </div>
                 <div>
-                  <h3 style={{ fontSize: "2rem", fontWeight: 600, color: "var(--nr-deep-navy)", marginBottom: "24px", letterSpacing: "-0.01em" }}>The Background</h3>
+                  <h3 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "24px", letterSpacing: "-0.03em" }}>The Background</h3>
                   <p style={{ fontSize: "1.25rem", color: "var(--nr-medium-gray)", lineHeight: 1.7 }}>
                     {project.overview}
                   </p>
@@ -197,11 +197,11 @@ export default function CaseStudy() {
             {/* Challenge */}
             {project.challenge && (
               <div style={{ display: "grid", gridTemplateColumns: "100px 1fr", gap: "40px" }}>
-                <div style={{ fontSize: "0.875rem", color: "var(--nr-blue)", fontWeight: 600, borderTop: "2px solid var(--nr-blue)", paddingTop: "12px" }}>
+                <div style={{ fontSize: "0.875rem", color: "var(--nr-blue)", fontWeight: 600, borderTop: "2px solid var(--nr-blue)", paddingTop: "12px", letterSpacing: "0.1em", textTransform: "uppercase" }}>
                   02 —<br/>Challenge
                 </div>
                 <div>
-                  <h3 style={{ fontSize: "2rem", fontWeight: 600, color: "var(--nr-deep-navy)", marginBottom: "24px", letterSpacing: "-0.01em" }}>The Problem</h3>
+                  <h3 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "24px", letterSpacing: "-0.03em" }}>The Problem</h3>
                   <p style={{ fontSize: "1.125rem", color: "var(--nr-medium-gray)", lineHeight: 1.7, marginBottom: "24px" }}>
                     <strong>Requirements:</strong> {project.challenge.requirements}
                   </p>
@@ -215,11 +215,11 @@ export default function CaseStudy() {
             {/* Approach */}
             {project.strategy && (
               <div style={{ display: "grid", gridTemplateColumns: "100px 1fr", gap: "40px" }}>
-                <div style={{ fontSize: "0.875rem", color: "var(--nr-blue)", fontWeight: 600, borderTop: "2px solid var(--nr-blue)", paddingTop: "12px" }}>
+                <div style={{ fontSize: "0.875rem", color: "var(--nr-blue)", fontWeight: 600, borderTop: "2px solid var(--nr-blue)", paddingTop: "12px", letterSpacing: "0.1em", textTransform: "uppercase" }}>
                   03 —<br/>Approach
                 </div>
                 <div>
-                  <h3 style={{ fontSize: "2rem", fontWeight: 600, color: "var(--nr-deep-navy)", marginBottom: "24px", letterSpacing: "-0.01em" }}>The Strategy</h3>
+                  <h3 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "24px", letterSpacing: "-0.03em" }}>The Strategy</h3>
                   <p style={{ fontSize: "1.125rem", color: "var(--nr-medium-gray)", lineHeight: 1.7, marginBottom: "24px" }}>
                     {project.strategy.uxPlanning}
                   </p>
@@ -233,11 +233,11 @@ export default function CaseStudy() {
             {/* Solution */}
             {project.features && (
               <div style={{ display: "grid", gridTemplateColumns: "100px 1fr", gap: "40px" }}>
-                <div style={{ fontSize: "0.875rem", color: "var(--nr-blue)", fontWeight: 600, borderTop: "2px solid var(--nr-blue)", paddingTop: "12px" }}>
+                <div style={{ fontSize: "0.875rem", color: "var(--nr-blue)", fontWeight: 600, borderTop: "2px solid var(--nr-blue)", paddingTop: "12px", letterSpacing: "0.1em", textTransform: "uppercase" }}>
                   04 —<br/>Solution
                 </div>
                 <div>
-                  <h3 style={{ fontSize: "2rem", fontWeight: 600, color: "var(--nr-deep-navy)", marginBottom: "32px", letterSpacing: "-0.01em" }}>The Execution</h3>
+                  <h3 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "32px", letterSpacing: "-0.03em" }}>The Execution</h3>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }}>
                     {project.features.map((feature, i) => (
                       <div key={i}>

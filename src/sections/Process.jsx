@@ -34,10 +34,20 @@ export default function Process() {
 
         <div style={{ position: "relative", paddingBottom: "40px" }} className="process-timeline">
           {/* Connecting Line (Desktop only) */}
-          <div className="process-line" style={{ 
-            position: "absolute", top: "40px", left: "0", right: "0", height: "1px", 
-            background: "linear-gradient(90deg, transparent, var(--nr-light-gray) 10%, var(--nr-light-gray) 90%, transparent)" 
+          <div className="process-line-bg hidden md:block" style={{ 
+            position: "absolute", top: "40px", left: "10%", right: "10%", height: "1px", 
+            background: "var(--nr-light-gray)" 
           }}></div>
+          <motion.div className="process-line-active hidden md:block" 
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : {}}
+            transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
+            style={{ 
+              position: "absolute", top: "39px", left: "10%", right: "10%", height: "2px", 
+              background: "var(--nr-gradient-primary)",
+              transformOrigin: "left"
+            }}
+          />
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "24px" }} className="process-grid">
             {processSteps.map((step, idx) => (

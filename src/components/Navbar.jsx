@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import MagneticButton from "./MagneticButton";
-import logo from "../assets/brand/neoriz-logo-primary/logo.svg";
+import logo from "../assets/brand/neoriz-logo-horizontal.svg";
 
 export default function Navbar({ onToggleMenu, isMenuOpen }) {
   const [isScrolled, setIsScrolled] = useState(false);
