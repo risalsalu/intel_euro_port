@@ -106,8 +106,8 @@ export default function FeaturedWork() {
         
         <div style={{ textAlign: "center" }}>
           <MagneticButton>
-            <Link to="/work" className="btn-primary" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "16px 40px", borderRadius: "100px", background: "var(--nr-deep-navy)", color: "var(--nr-white)", fontWeight: 600, fontSize: "1.125rem" }}>
-              View All Work <span style={{ fontSize: "1.2em" }}>→</span>
+            <Link to="/work" className="btn-secondary" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "16px 40px", borderRadius: "100px", border: "1px solid var(--nr-deep-navy)", background: "transparent", color: "var(--nr-deep-navy)", fontWeight: 600, fontSize: "1.125rem", textDecoration: "none" }}>
+              Explore Our Work <span style={{ fontSize: "1.2em" }}>→</span>
             </Link>
           </MagneticButton>
         </div>

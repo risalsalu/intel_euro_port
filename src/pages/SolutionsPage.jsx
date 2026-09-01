@@ -56,11 +56,18 @@ const solutions = [
   }
 ];
 
+import useSEO from "../hooks/useSEO";
+
 export default function SolutionsPage() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
+  useSEO({
+    title: "Solutions & Capabilities — NEORIZ Solutions",
+    description: "Explore our capabilities in building digital experiences, web applications, and custom software for enterprises.",
+    url: "https://inteleurosolutions.com/solutions"
+  });
+
   useEffect(() => {
-    document.title = "Solutions & Capabilities — NEORIZ Solutions";
     window.scrollTo(0, 0);
   }, []);
 
@@ -164,7 +171,7 @@ export default function SolutionsPage() {
               How do we get there?
             </h2>
             <MagneticButton>
-              <Link to="/process" className="btn-primary" style={{ background: "var(--nr-white)", color: "var(--nr-deep-navy)", padding: "16px 40px", borderRadius: "100px", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: "12px", fontSize: "1.125rem" }}>
+              <Link to="/process" className="btn-primary" style={{ background: "var(--nr-white)", color: "var(--nr-deep-navy)", padding: "16px 40px", borderRadius: "100px", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: "12px", fontSize: "1.125rem", textDecoration: "none" }}>
                 View Our Process
                 <span style={{ fontSize: "1.2em" }}>→</span>
               </Link>

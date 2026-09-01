@@ -15,11 +15,18 @@ const processSteps = [
   { id: "05", title: "Deliver", subtitle: "Test, refine, launch, and prepare for the next stage.", desc: "Rigorous quality assurance, performance optimization, and a seamless deployment process ensure long-term stability and success." }
 ];
 
+import useSEO from "../hooks/useSEO";
+
 export default function ProcessPage() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
+  useSEO({
+    title: "Our Process — NEORIZ Solutions",
+    description: "Discover the NEORIZ methodology: Discover, Define, Design, Develop, and Deliver.",
+    url: "https://inteleurosolutions.com/process"
+  });
+
   useEffect(() => {
-    document.title = "Our Process — NEORIZ Solutions";
     window.scrollTo(0, 0);
   }, []);
 
@@ -106,8 +113,8 @@ export default function ProcessPage() {
               See the results of our process.
             </h2>
             <MagneticButton>
-              <Link to="/work" className="btn-primary" style={{ background: "var(--nr-deep-navy)", color: "var(--nr-white)", padding: "16px 40px", borderRadius: "100px", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: "12px", fontSize: "1.125rem" }}>
-                View Our Work
+              <Link to="/work" className="btn-primary" style={{ background: "var(--nr-deep-navy)", color: "var(--nr-white)", padding: "16px 40px", borderRadius: "100px", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: "12px", fontSize: "1.125rem", textDecoration: "none" }}>
+                Explore Our Work
                 <span style={{ fontSize: "1.2em" }}>→</span>
               </Link>
             </MagneticButton>

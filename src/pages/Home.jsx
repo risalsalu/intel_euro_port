@@ -16,6 +16,8 @@ import Contact from "../sections/Contact";
 import Footer from "../sections/Footer";
 import { technologiesData } from "../data/portfolioData";
 
+import useSEO from "../hooks/useSEO";
+
 export default function Home() {
   const [showLoader, setShowLoader] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,6 +25,13 @@ export default function Home() {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
+
+  useSEO({
+    title: "NEORIZ Solutions — Transforming Ideas Into Scalable Software",
+    description: "NEORIZ Solutions is a software development studio based in Kochi Infopark. We build premium software for diverse industries.",
+    url: "https://inteleurosolutions.com/",
+    image: "/images/projects/gems-health.png"
+  });
 
   useEffect(() => {
     // Scroll progress bar logic

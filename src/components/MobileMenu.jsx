@@ -5,6 +5,17 @@ export default function MobileMenu({ isOpen, onClose }) {
   const location = useLocation();
   const isHome = location.pathname === "/";
 
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   const renderLink = (path, label) => {
     return (
       <Link to={path} className="mobile-link" onClick={onClose}>
@@ -19,7 +30,7 @@ export default function MobileMenu({ isOpen, onClose }) {
       {renderLink("/solutions", "Solutions")}
       {renderLink("/work", "Work")}
       {renderLink("/process", "Process")}
-      {renderLink("/contact", "Contact")}
+      {renderLink("/contact", "Start a Project")}
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import MagneticButton from "../components/MagneticButton";
 
@@ -64,15 +65,15 @@ export default function Hero() {
           
           <motion.div variants={itemVariants} className="hero-buttons" style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
             <MagneticButton>
-              <a href="#work" className="btn-primary" style={{ background: 'var(--nr-deep-navy)', color: 'var(--nr-white)', padding: '16px 36px', borderRadius: '100px', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                View Selected Work
+              <Link to="/contact" className="btn-primary" style={{ background: 'var(--nr-deep-navy)', color: 'var(--nr-white)', padding: '16px 36px', borderRadius: '100px', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
+                Start a Project
                 <span className="btn-arrow">→</span>
-              </a>
+              </Link>
             </MagneticButton>
             <MagneticButton>
-              <a href="#about" className="btn-secondary" style={{ background: 'transparent', border: '1px solid var(--nr-light-gray)', color: 'var(--nr-deep-navy)', padding: '16px 36px', borderRadius: '100px', fontWeight: 600, display: 'inline-flex', alignItems: 'center' }}>
-                Our Capabilities
-              </a>
+              <Link to="/work" className="btn-secondary" style={{ background: 'transparent', border: '1px solid var(--nr-light-gray)', color: 'var(--nr-deep-navy)', padding: '16px 36px', borderRadius: '100px', fontWeight: 600, display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
+                Explore Our Work
+              </Link>
             </MagneticButton>
           </motion.div>
         </motion.div>

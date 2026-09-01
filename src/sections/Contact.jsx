@@ -29,8 +29,8 @@ export default function Contact() {
           </p>
           
           <MagneticButton>
-            <Link to="/contact" className="btn-primary" style={{ background: "var(--nr-deep-navy)", color: "var(--nr-white)", padding: "20px 48px", borderRadius: "100px", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: "12px", fontSize: "1.125rem" }}>
-              Get In Touch
+            <Link to="/contact" className="btn-primary" style={{ background: "var(--nr-deep-navy)", color: "var(--nr-white)", padding: "20px 48px", borderRadius: "100px", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: "12px", fontSize: "1.125rem", textDecoration: "none" }}>
+              Start a Project
               <span className="btn-arrow" style={{ fontSize: "1.2em" }}>→</span>
             </Link>
           </MagneticButton>

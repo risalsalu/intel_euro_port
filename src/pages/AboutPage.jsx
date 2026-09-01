@@ -7,6 +7,8 @@ import CustomCursor from "../components/CustomCursor";
 import Footer from "../sections/Footer";
 import MagneticButton from "../components/MagneticButton";
 
+import useSEO from "../hooks/useSEO";
+
 const values = [
   { id: "01", title: "Build with purpose.", desc: "Every line of code and every pixel must serve a specific business objective." },
   { id: "02", title: "Keep complexity behind the experience.", desc: "The user should only feel speed and intuition, while the heavy lifting happens out of sight." },
@@ -18,8 +20,13 @@ const values = [
 export default function AboutPage() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
+  useSEO({
+    title: "About Us — NEORIZ Solutions",
+    description: "Learn about NEORIZ Solutions, our approach, and our principles for building premium digital platforms.",
+    url: "https://inteleurosolutions.com/about"
+  });
+
   useEffect(() => {
-    document.title = "About Us — NEORIZ Solutions";
     window.scrollTo(0, 0);
   }, []);
 
@@ -144,7 +151,7 @@ export default function AboutPage() {
               Ready to see what we can build?
             </h2>
             <MagneticButton>
-              <Link to="/solutions" className="btn-primary" style={{ background: "var(--nr-deep-navy)", color: "var(--nr-white)", padding: "16px 40px", borderRadius: "100px", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: "12px", fontSize: "1.125rem" }}>
+              <Link to="/solutions" className="btn-primary" style={{ background: "var(--nr-deep-navy)", color: "var(--nr-white)", padding: "16px 40px", borderRadius: "100px", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: "12px", fontSize: "1.125rem", textDecoration: "none" }}>
                 Explore Our Solutions
                 <span style={{ fontSize: "1.2em" }}>→</span>
               </Link>
