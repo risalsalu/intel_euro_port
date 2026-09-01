@@ -5,7 +5,7 @@ export default function Loader({ onComplete }) {
   const [step, setStep] = useState(0);
 
   useEffect(() => {
-    // Step 1: Intel Euro Solutions (0 to 1.5s)
+    // Step 1: NEORIZ Solutions (0 to 1.5s)
     // Step 2: Transforming Ideas... (1.5s to 3s)
     // Step 3: Complete (3s)
     const t1 = setTimeout(() => setStep(1), 1500);
@@ -59,7 +59,7 @@ export default function Loader({ onComplete }) {
                 letterSpacing: "-0.02em"
               }}
             >
-              Intel Euro Solutions
+              NEORIZ Solutions
             </motion.h2>
           )}
 

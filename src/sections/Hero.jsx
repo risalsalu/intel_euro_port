@@ -1,171 +1,94 @@
-import React, { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import MagneticButton from "../components/MagneticButton";
 
 export default function Hero() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const containerRef = useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
 
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      // Calculate mouse position relative to container center (-1 to 1)
-      const x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
-      const y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
-      setMousePos({ x, y });
-    };
-
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener("mousemove", handleMouseMove);
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener("mousemove", handleMouseMove);
-      }
-    };
-  }, []);
-
-  // Headline words for reveal animation
-  const headlineWords = "Building Digital Products That Drive Business Growth.".split(" ");
-
-  // Container motion variant
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  
+  // Motion variants
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
+    show: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.2,
-      },
-    },
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+    }
   };
-
-  const wordVariants = {
-    hidden: { y: "100%", opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.16, 1, 0.3, 1], // easeOutExpo
-      },
-    },
-  };
-
-  const textFadeVariants = {
+  
+  const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1,
-        ease: [0.16, 1, 0.3, 1],
-        delay: 0.8,
-      },
-    },
+    show: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+    }
   };
 
   return (
-    <section ref={containerRef} className="hero" id="hero">
-      <div className="container hero-inner">
-        <motion.div
-          className="hero-content"
+    <section ref={containerRef} className="hero" id="hero" style={{ position: 'relative', overflow: 'hidden', minHeight: '100vh', display: 'flex', alignItems: 'center', background: 'var(--nr-soft-white)' }}>
+      {/* Background Geometric Grid */}
+      <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.4 }}>
+        <div style={{ position: 'absolute', top: 0, bottom: 0, left: '10%', width: '1px', background: 'var(--nr-light-gray)' }} />
+        <div style={{ position: 'absolute', top: 0, bottom: 0, left: '30%', width: '1px', background: 'var(--nr-light-gray)' }} />
+        <div style={{ position: 'absolute', top: 0, bottom: 0, right: '30%', width: '1px', background: 'var(--nr-light-gray)' }} />
+        <div style={{ position: 'absolute', top: 0, bottom: 0, right: '10%', width: '1px', background: 'var(--nr-light-gray)' }} />
+      </div>
+
+      <div className="container" style={{ position: 'relative', zIndex: 2, width: '100%' }}>
+        <motion.div 
+          className="hero-inner"
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          animate="show"
+          style={{ y: y1, opacity, maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}
         >
-          <div className="hero-eyebrow">
-            <motion.span
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              Software Development Studio
-            </motion.span>
-          </div>
-
-          <h1 className="hero-headline">
-            {headlineWords.map((word, i) => (
-              <span key={i} className="word" style={{ overflow: "hidden", display: "inline-block" }}>
-                <motion.span variants={wordVariants} style={{ display: "inline-block" }}>
-                  {word}
-                </motion.span>
-              </span>
-            ))}
-          </h1>
-
-          <motion.p className="hero-description" variants={textFadeVariants}>
-            Intel Euro Solutions crafts modern web applications, business platforms, e-commerce solutions, and digital experiences that help businesses scale.
+          <motion.div variants={itemVariants} className="hero-eyebrow" style={{ color: 'var(--nr-blue)', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '24px', fontSize: '0.875rem' }}>
+            Digital Innovation Studio
+          </motion.div>
+          
+          <motion.h1 variants={itemVariants} className="hero-headline" style={{ fontFamily: 'var(--nr-font-display)', fontSize: 'clamp(3rem, 7vw, 6rem)', fontWeight: 700, lineHeight: 1.05, color: 'var(--nr-deep-navy)', letterSpacing: '-0.03em', marginBottom: '32px' }}>
+            DESIGNING <br/>
+            <span style={{ background: 'var(--nr-gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>WHAT'S NEXT.</span>
+          </motion.h1>
+          
+          <motion.p variants={itemVariants} className="hero-description" style={{ fontSize: 'clamp(1.125rem, 2vw, 1.35rem)', color: 'var(--nr-medium-gray)', maxWidth: '600px', margin: '0 auto 48px auto', lineHeight: 1.6 }}>
+            We architect and build premium digital platforms, custom software, and modern web applications that move business forward.
           </motion.p>
-
-          <motion.div className="hero-buttons" variants={textFadeVariants}>
+          
+          <motion.div variants={itemVariants} className="hero-buttons" style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
             <MagneticButton>
-              <a href="#work" className="btn-primary">
-                View Our Work
-                <span className="btn-arrow" style={{ marginLeft: "6px" }}>→</span>
+              <a href="#work" className="btn-primary" style={{ background: 'var(--nr-deep-navy)', color: 'var(--nr-white)', padding: '16px 36px', borderRadius: '100px', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                View Selected Work
+                <span className="btn-arrow">→</span>
               </a>
             </MagneticButton>
             <MagneticButton>
-              <a href="#contact" className="btn-secondary">
-                Start A Project
+              <a href="#about" className="btn-secondary" style={{ background: 'transparent', border: '1px solid var(--nr-light-gray)', color: 'var(--nr-deep-navy)', padding: '16px 36px', borderRadius: '100px', fontWeight: 600, display: 'inline-flex', alignItems: 'center' }}>
+                Our Capabilities
               </a>
             </MagneticButton>
           </motion.div>
         </motion.div>
-
-        {/* Hero Visual Column */}
-        <div className="hero-visual">
-          <div className="hero-canvas">
-            {/* Grid background */}
-            <div className="hero-grid">
-              {Array.from({ length: 36 }).map((_, i) => (
-                <div key={i} className="hero-grid-cell" />
-              ))}
-            </div>
-
-            {/* Geometric floating shapes reacting to mouse */}
-            <motion.div
-              className="hero-shape hero-shape-1"
-              animate={{
-                x: mousePos.x * 25,
-                y: mousePos.y * 25,
-                rotate: 15 + mousePos.x * 10,
-              }}
-              transition={{ type: "tween", ease: "linear", duration: 0.2 }}
-            />
-            <motion.div
-              className="hero-shape hero-shape-2"
-              animate={{
-                x: mousePos.x * -20,
-                y: mousePos.y * -20,
-                rotate: -10 + mousePos.y * 12,
-              }}
-              transition={{ type: "tween", ease: "linear", duration: 0.2 }}
-            />
-            <div className="hero-shape hero-shape-3" />
-            <div className="hero-shape hero-shape-4" />
-
-            {/* Animated Dots */}
-            <div className="hero-dot hero-dot-1" />
-            <div className="hero-dot hero-dot-2" />
-
-            {/* Cursor following element */}
-            <motion.div
-              className="hero-cursor-element"
-              animate={{
-                x: mousePos.x * 40,
-                y: mousePos.y * 40,
-              }}
-              transition={{ type: "spring", stiffness: 60, damping: 20 }}
-            >
-              <div className="hero-cursor-inner"></div>
-            </motion.div>
-          </div>
-        </div>
       </div>
+
+      {/* Floating Geometric Elements */}
+      <motion.div 
+        animate={{ rotate: 360 }} 
+        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+        style={{ position: 'absolute', top: '15%', right: '15%', width: '300px', height: '300px', border: '1px solid var(--nr-light-gray)', borderRadius: '50%', opacity: 0.5, pointerEvents: 'none' }}
+      />
+      <motion.div 
+        animate={{ y: [0, -20, 0] }} 
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        style={{ position: 'absolute', bottom: '20%', left: '10%', width: '100px', height: '100px', background: 'var(--nr-gradient-primary)', opacity: 0.05, borderRadius: '16px', pointerEvents: 'none', transform: 'rotate(45deg)' }}
+      />
     </section>
   );
 }

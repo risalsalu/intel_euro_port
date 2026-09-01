@@ -66,7 +66,7 @@ export default function Home() {
       {/* Global Scroll Progress Bar */}
       <div 
         className="scroll-progress" 
-        style={{ width: `${scrollProgress}%` }}
+        style={{ width: `${scrollProgress}%`, background: "var(--nr-gradient-primary)" }}
       />
 
       {/* Navigation */}
@@ -75,40 +75,39 @@ export default function Home() {
 
       {/* Main Content */}
       <main style={{ position: "relative" }}>
+        
+        {/* 02. Hero */}
         <Hero />
         
-        <div className="container">
-          <div className="divider" />
-        </div>
-        
+        {/* 03. Brand Introduction / What We Build (mapped to About.jsx) */}
         <About />
         
-        <div className="container">
-          <div className="divider" />
-        </div>
+        {/* 04. Selected Work */}
+        <FeaturedWork />
         
+        {/* 05. Capabilities (mapped to Services.jsx) */}
         <Services />
         
+        {/* 06. Industries */}
         <Industries />
         
-        <FeaturedWork />
-
-        {/* Technology Marquee Section */}
-        <section className="marquee-section">
+        {/* 09. Technology Marquee Section */}
+        <section className="marquee-section" style={{ background: "var(--nr-soft-white)", paddingBottom: "60px" }}>
           <ScrollingMarquee items={technologiesData} />
         </section>
 
+        {/* 07. Process / How We Work */}
         <Process />
         
-        <div className="container">
-          <div className="divider" />
-        </div>
-        
+        {/* 08. Why NEORIZ */}
         <WhyChooseUs />
         
+        {/* 10. Final Call To Action */}
         <Contact />
+        
       </main>
 
+      {/* 11. Premium Footer */}
       <Footer />
     </>
   );

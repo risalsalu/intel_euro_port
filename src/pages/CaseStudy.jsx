@@ -56,24 +56,24 @@ export default function CaseStudy() {
     };
 
     // Update document title
-    document.title = `${project.name} Case Study — Intel Euro Solutions`;
+    document.title = `${project.name} Case Study — NEORIZ Solutions`;
 
     // Update description
     if (metaDescription) {
-      metaDescription.setAttribute("content", `${project.name} case study by Intel Euro Solutions. Detail on strategy, design system, development process, and results.`);
+      metaDescription.setAttribute("content", `${project.name} case study by NEORIZ Solutions. Detail on strategy, design system, development process, and results.`);
     }
 
     // Set OG Tags
     const ogUrl = setMetaTag("property", "og:url", `https://inteleurosolutions.com/project/${slug}`);
-    const ogTitle = setMetaTag("property", "og:title", `${project.name} Case Study — Intel Euro Solutions`);
-    const ogDesc = setMetaTag("property", "og:description", `${project.name} case study: Strategy, design system, and custom development process by Intel Euro Solutions.`);
+    const ogTitle = setMetaTag("property", "og:title", `${project.name} Case Study — NEORIZ Solutions`);
+    const ogDesc = setMetaTag("property", "og:description", `${project.name} case study: Strategy, design system, and custom development process by NEORIZ Solutions.`);
     const ogImage = setMetaTag("property", "og:image", `https://inteleurosolutions.com${project.image}`);
 
     // Set Twitter Tags
     const twitterCard = setMetaTag("property", "twitter:card", "summary_large_image");
     const twitterUrl = setMetaTag("property", "twitter:url", `https://inteleurosolutions.com/project/${slug}`);
-    const twitterTitle = setMetaTag("property", "twitter:title", `${project.name} Case Study — Intel Euro Solutions`);
-    const twitterDesc = setMetaTag("property", "twitter:description", `${project.name} case study by Intel Euro Solutions.`);
+    const twitterTitle = setMetaTag("property", "twitter:title", `${project.name} Case Study — NEORIZ Solutions`);
+    const twitterDesc = setMetaTag("property", "twitter:description", `${project.name} case study by NEORIZ Solutions.`);
     const twitterImage = setMetaTag("property", "twitter:image", `https://inteleurosolutions.com${project.image}`);
 
     // Set Canonical link
@@ -83,13 +83,13 @@ export default function CaseStudy() {
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "TechArticle",
-      "headline": `${project.name} Case Study — Intel Euro Solutions`,
+      "headline": `${project.name} Case Study — NEORIZ Solutions`,
       "description": project.overview,
       "image": `https://inteleurosolutions.com${project.image}`,
       "url": `https://inteleurosolutions.com/project/${slug}`,
       "publisher": {
         "@type": "Organization",
-        "name": "Intel Euro Solutions",
+        "name": "NEORIZ Solutions",
         "logo": {
           "@type": "ImageObject",
           "url": "https://inteleurosolutions.com/favicon.svg"

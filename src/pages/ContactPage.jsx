@@ -13,7 +13,7 @@ export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
-    document.title = "Contact Us — Intel Euro Solutions";
+    document.title = "Contact Us — NEORIZ Solutions";
     window.scrollTo(0, 0);
   }, []);
 
@@ -202,7 +202,7 @@ export default function ContactPage() {
                     <div className="stat-number" style={{ fontSize: "3rem", marginBottom: "16px" }}>✓</div>
                     <h3 className="about-value-title" style={{ fontSize: "1.25rem", marginBottom: "10px" }}>Message Received</h3>
                     <p style={{ color: "#6B6B6B", fontSize: "0.875rem", lineHeight: "1.6" }}>
-                      Thank you. An engineering representative from Intel Euro Solutions will review your requirements and follow up within 24 business hours.
+                      Thank you. An engineering representative from NEORIZ Solutions will review your requirements and follow up within 24 business hours.
                     </p>
                   </motion.div>
                 )}

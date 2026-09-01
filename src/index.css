@@ -1,10 +1,10 @@
 /* ============================================
-   INTEL EURO SOLUTIONS — DESIGN SYSTEM
-   Pure Black & White · Editorial · Premium
+   NEORIZ SOLUTIONS — BRAND FOUNDATION
+   Phase 1: Design System Architecture
    ============================================ */
 
 /* --- RESET & BASE --- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 *, *::before, *::after {
   margin: 0;
@@ -13,6 +13,60 @@
 }
 
 :root {
+  /* ============================================
+     NEORIZ BRAND TOKENS (NEW SYSTEM)
+     ============================================ */
+  
+  /* NEORIZ Colors */
+  --nr-deep-navy: #0A192F;
+  --nr-blue: #0070F3;
+  --nr-teal-green: #00E5FF;
+  
+  /* NEORIZ Neutrals */
+  --nr-white: #FFFFFF;
+  --nr-soft-white: #F8F9FA;
+  --nr-light-gray: #E2E8F0;
+  --nr-medium-gray: #94A3B8;
+  --nr-dark-navy: #0F172A;
+  --nr-near-black: #0B0F19;
+
+  /* NEORIZ Gradients */
+  --nr-gradient-primary: linear-gradient(135deg, var(--nr-blue) 0%, var(--nr-teal-green) 100%);
+  
+  /* NEORIZ Typography */
+  --nr-font-primary: 'Inter', -apple-system, sans-serif;
+  --nr-font-display: 'Outfit', 'Inter', sans-serif;
+
+  /* NEORIZ Spacing */
+  --nr-spacing-micro: 4px;
+  --nr-spacing-small: 8px;
+  --nr-spacing-base: 16px;
+  --nr-spacing-md: 24px;
+  --nr-spacing-lg: 48px;
+  --nr-spacing-xl: 80px;
+  --nr-spacing-xxl: 140px;
+
+  /* NEORIZ Layout */
+  --nr-container-max: 1280px;
+  --nr-container-padding: 5vw;
+
+  /* NEORIZ Component Tokens */
+  --nr-radius-sm: 4px;
+  --nr-radius-md: 8px;
+  --nr-radius-lg: 16px;
+  --nr-radius-full: 9999px;
+  --nr-shadow-sm: 0 4px 12px rgba(10, 25, 47, 0.05);
+  --nr-shadow-md: 0 8px 24px rgba(10, 25, 47, 0.08);
+
+  /* NEORIZ Motion */
+  --nr-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --nr-transition-fast: 0.2s var(--nr-ease-out);
+  --nr-transition-medium: 0.4s var(--nr-ease-out);
+  --nr-transition-slow: 0.8s var(--nr-ease-out);
+
+  /* ============================================
+     LEGACY TOKENS (PRESERVED FOR STABILITY)
+     ============================================ */
   --white: #FFFFFF;
   --black: #000000;
   --gray-50: #FAFAFA;
@@ -1432,5 +1486,29 @@ section {
 
   .stat-number {
     margin-bottom: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .featured-project-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
+  .featured-project-row > div {
+    grid-column: 1 / -1 !important;
+    padding: 0 !important;
+  }
+  .capability-row {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .capability-content {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .process-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
   }
 }

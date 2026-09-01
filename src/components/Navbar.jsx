@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import MagneticButton from "./MagneticButton";
+import logo from "../assets/brand/neoriz-logo-primary/logo.svg";
 
 export default function Navbar({ onToggleMenu, isMenuOpen }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,42 +21,34 @@ export default function Navbar({ onToggleMenu, isMenuOpen }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const renderLink = (hash, label, isCta = false) => {
+  const renderLink = (path, label, isCta = false) => {
     const className = isCta ? "nav-cta" : "nav-link";
-    if (isHome) {
-      return (
-        <a href={`#${hash}`} className={className}>
-          {label}
-        </a>
-      );
-    } else {
-      return (
-        <Link to={`/#${hash}`} className={className}>
-          {label}
-        </Link>
-      );
-    }
+    return (
+      <Link to={path} className={className}>
+        {label}
+      </Link>
+    );
   };
 
   return (
     <nav className={`nav ${isScrolled ? "scrolled" : ""}`}>
       <div className="container nav-inner">
         {isHome ? (
-          <a href="#hero" className="nav-logo">
-            Intel Euro<span> Solutions</span>
+          <a href="#hero" className="nav-logo" style={{ display: "flex", alignItems: "center" }}>
+            <img src={logo} alt="NEORIZ Solutions" style={{ height: "40px", width: "auto" }} />
           </a>
         ) : (
-          <Link to="/" className="nav-logo">
-            Intel Euro<span> Solutions</span>
+          <Link to="/" className="nav-logo" style={{ display: "flex", alignItems: "center" }}>
+            <img src={logo} alt="NEORIZ Solutions" style={{ height: "40px", width: "auto" }} />
           </Link>
         )}
 
         <div className="nav-links">
-          {renderLink("about", "About")}
-          {renderLink("services", "Services")}
-          {renderLink("work", "Work")}
-          {renderLink("process", "Process")}
-          {renderLink("contact", "Start A Project", true)}
+          {renderLink("/about", "About")}
+          {renderLink("/solutions", "Solutions")}
+          {renderLink("/work", "Work")}
+          {renderLink("/process", "Process")}
+          {renderLink("/contact", "Start a Project", true)}
         </div>
 
         <div 
