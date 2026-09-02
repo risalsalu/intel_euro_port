@@ -26,7 +26,7 @@ export default function Home() {
   useSEO({
     title: "NEORIZ Solutions — Transforming Ideas Into Scalable Software",
     description: "NEORIZ Solutions is a software development studio based in Kochi Infopark. We build premium software for diverse industries.",
-    url: "https://inteleurosolutions.com/",
+    url: "https://neorizsolutions.com/",
     image: "/images/projects/gems-health.png"
   });
 

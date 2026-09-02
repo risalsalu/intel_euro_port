@@ -64,7 +64,7 @@ export default function SolutionsPage() {
   useSEO({
     title: "Solutions & Capabilities — NEORIZ Solutions",
     description: "Explore our capabilities in building digital experiences, web applications, and custom software for enterprises.",
-    url: "https://inteleurosolutions.com/solutions"
+    url: "https://neorizsolutions.com/solutions"
   });
 
   useEffect(() => {

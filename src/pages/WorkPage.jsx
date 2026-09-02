@@ -33,7 +33,7 @@ export default function WorkPage() {
   useSEO({
     title: "Selected Work — NEORIZ Solutions",
     description: "Explore our portfolio of premium digital platforms, custom software, and modern web applications.",
-    url: "https://inteleurosolutions.com/work"
+    url: "https://neorizsolutions.com/work"
   });
 
   useEffect(() => {

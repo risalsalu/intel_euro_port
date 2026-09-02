@@ -53,12 +53,12 @@ export default function CaseStudy() {
       metaDescription.setAttribute("content", project.overview || `${project.name} case study by NEORIZ Solutions.`);
     }
 
-    const ogUrl = setMetaTag("property", "og:url", `https://inteleurosolutions.com/project/${slug}`);
+    const ogUrl = setMetaTag("property", "og:url", `https://neorizsolutions.com/project/${slug}`);
     const ogTitle = setMetaTag("property", "og:title", `${project.name} Case Study — NEORIZ Solutions`);
     const ogDesc = setMetaTag("property", "og:description", project.overview || `${project.name} case study by NEORIZ Solutions.`);
-    const ogImage = setMetaTag("property", "og:image", `https://inteleurosolutions.com${project.image}`);
+    const ogImage = setMetaTag("property", "og:image", `https://neorizsolutions.com${project.image}`);
 
-    const canonical = setLinkTag("canonical", `https://inteleurosolutions.com/project/${slug}`);
+    const canonical = setLinkTag("canonical", `https://neorizsolutions.com/project/${slug}`);
 
     window.scrollTo(0, 0);
 

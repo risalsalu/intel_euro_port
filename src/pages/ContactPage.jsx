@@ -27,7 +27,7 @@ export default function ContactPage() {
   useSEO({
     title: "Start a Project — NEORIZ Solutions",
     description: "Ready to build something? Contact NEORIZ Solutions to discuss your project requirements.",
-    url: "https://inteleurosolutions.com/contact"
+    url: "https://neorizsolutions.com/contact"
   });
 
   useEffect(() => {
@@ -126,7 +126,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <div style={{ fontSize: "0.75rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--nr-medium-gray)", marginBottom: "4px" }}>Email Inquiry</div>
-                    <a href="mailto:hello@inteleurosolutions.com" style={{ fontSize: "1.25rem", fontWeight: "500", color: "var(--nr-deep-navy)", textDecoration: "none" }}>hello@inteleurosolutions.com</a>
+                    <a href="mailto:hello@neorizsolutions.com" style={{ fontSize: "1.25rem", fontWeight: "500", color: "var(--nr-deep-navy)", textDecoration: "none" }}>hello@neorizsolutions.com</a>
                   </div>
                 </div>
 

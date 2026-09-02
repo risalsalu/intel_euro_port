@@ -23,7 +23,7 @@ export default function ProcessPage() {
   useSEO({
     title: "Our Process — NEORIZ Solutions",
     description: "Discover the NEORIZ methodology: Discover, Define, Design, Develop, and Deliver.",
-    url: "https://inteleurosolutions.com/process"
+    url: "https://neorizsolutions.com/process"
   });
 
   useEffect(() => {

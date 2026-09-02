@@ -22,7 +22,7 @@ export default function AboutPage() {
   useSEO({
     title: "About Us — NEORIZ Solutions",
     description: "Learn about NEORIZ Solutions, our approach, and our principles for building premium digital platforms.",
-    url: "https://inteleurosolutions.com/about"
+    url: "https://neorizsolutions.com/about"
   });
 
   useEffect(() => {
