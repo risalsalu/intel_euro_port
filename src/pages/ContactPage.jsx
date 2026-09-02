@@ -105,7 +105,7 @@ export default function ContactPage() {
       >
         <div className="container">
           
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "80px", marginTop: "40px" }} className="about-inner">
+          <div className="grid-system grid-2-col" style={{ marginTop: "40px" }}>
             
             {/* Left Column: Details */}
             <div>

@@ -114,7 +114,7 @@ export default function CaseStudy() {
             <span style={{ fontSize: "1.2em" }}>←</span> Back to Portfolio
           </Link>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: "60px", alignItems: "end", marginBottom: "60px" }}>
+          <div className="case-hero-grid">
             <div>
               <div style={{ color: "var(--nr-blue)", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "16px", fontSize: "0.875rem" }}>
                 {project.category} / {project.industry}
@@ -181,7 +181,7 @@ export default function CaseStudy() {
             
             {/* Context */}
             {project.overview && (
-              <div style={{ display: "grid", gridTemplateColumns: "100px 1fr", gap: "40px" }}>
+              <div className="case-section-grid">
                 <div style={{ fontSize: "0.875rem", color: "var(--nr-blue)", fontWeight: 600, borderTop: "2px solid var(--nr-blue)", paddingTop: "12px", letterSpacing: "0.1em", textTransform: "uppercase" }}>
                   01 —<br/>Context
                 </div>
@@ -196,7 +196,7 @@ export default function CaseStudy() {
 
             {/* Challenge */}
             {project.challenge && (
-              <div style={{ display: "grid", gridTemplateColumns: "100px 1fr", gap: "40px" }}>
+              <div className="case-section-grid">
                 <div style={{ fontSize: "0.875rem", color: "var(--nr-blue)", fontWeight: 600, borderTop: "2px solid var(--nr-blue)", paddingTop: "12px", letterSpacing: "0.1em", textTransform: "uppercase" }}>
                   02 —<br/>Challenge
                 </div>
@@ -214,7 +214,7 @@ export default function CaseStudy() {
 
             {/* Approach */}
             {project.strategy && (
-              <div style={{ display: "grid", gridTemplateColumns: "100px 1fr", gap: "40px" }}>
+              <div className="case-section-grid">
                 <div style={{ fontSize: "0.875rem", color: "var(--nr-blue)", fontWeight: 600, borderTop: "2px solid var(--nr-blue)", paddingTop: "12px", letterSpacing: "0.1em", textTransform: "uppercase" }}>
                   03 —<br/>Approach
                 </div>
@@ -232,13 +232,13 @@ export default function CaseStudy() {
 
             {/* Solution */}
             {project.features && (
-              <div style={{ display: "grid", gridTemplateColumns: "100px 1fr", gap: "40px" }}>
+              <div className="case-section-grid">
                 <div style={{ fontSize: "0.875rem", color: "var(--nr-blue)", fontWeight: 600, borderTop: "2px solid var(--nr-blue)", paddingTop: "12px", letterSpacing: "0.1em", textTransform: "uppercase" }}>
                   04 —<br/>Solution
                 </div>
                 <div>
                   <h3 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "32px", letterSpacing: "-0.03em" }}>The Execution</h3>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }}>
+                  <div className="case-features-grid">
                     {project.features.map((feature, i) => (
                       <div key={i}>
                         <h4 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "12px", color: "var(--nr-deep-navy)" }}>{feature.title}</h4>

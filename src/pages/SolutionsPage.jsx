@@ -111,7 +111,8 @@ export default function SolutionsPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "60px", alignItems: "center" }}
+                    className="grid-system grid-2-col"
+                    style={{ alignItems: "center" }}
                   >
                     {/* Content */}
                     <div>

@@ -49,7 +49,7 @@ export default function Process() {
             }}
           />
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "24px" }} className="process-grid">
+          <div className="process-grid">
             {processSteps.map((step, idx) => (
               <motion.div 
                 key={step.id}

@@ -15,7 +15,7 @@ export default function Services() {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <section ref={containerRef} className="services bg-grid-pattern-dark" id="services" style={{ padding: "120px 0", background: "var(--nr-deep-navy)", color: "var(--nr-white)" }}>
+    <section ref={containerRef} className="services bg-grid-pattern-dark" id="services" style={{ background: "var(--nr-deep-navy)", color: "var(--nr-white)" }}>
       <div className="container" style={{ position: "relative", zIndex: 2 }}>
         
         <div style={{ marginBottom: "80px", maxWidth: "800px" }}>
@@ -42,10 +42,8 @@ export default function Services() {
               transition={{ duration: 0.5, delay: 0.1 * idx }}
               onMouseEnter={() => setHovered(idx)}
               onMouseLeave={() => setHovered(null)}
+              className="capability-row"
               style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 4fr",
-                alignItems: "center",
                 padding: "40px 0",
                 borderBottom: "1px solid rgba(255,255,255,0.1)",
                 position: "relative",
@@ -53,7 +51,6 @@ export default function Services() {
                 transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
                 transform: hovered === idx ? "translateY(-4px)" : "none"
               }}
-              className="capability-row"
             >
               <div style={{ 
                 position: "absolute", 
@@ -71,7 +68,7 @@ export default function Services() {
                 {cap.id}
               </div>
               
-              <div style={{ zIndex: 1, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px", alignItems: "center" }} className="capability-content">
+              <div className="capability-content" style={{ zIndex: 1 }}>
                 <h3 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(1.5rem, 3vw, 2.5rem)", margin: 0, fontWeight: 700, letterSpacing: "-0.03em", color: hovered === idx ? "var(--nr-white)" : "rgba(255,255,255,0.9)", transition: "color 0.3s ease" }}>
                   {cap.title}
                 </h3>

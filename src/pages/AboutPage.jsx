@@ -5,7 +5,6 @@ import Navbar from "../components/Navbar";
 import MobileMenu from "../components/MobileMenu";
 import CustomCursor from "../components/CustomCursor";
 import Footer from "../sections/Footer";
-import MagneticButton from "../components/MagneticButton";
 
 import useSEO from "../hooks/useSEO";
 
@@ -39,13 +38,13 @@ export default function AboutPage() {
       <main style={{ paddingTop: "120px" }}>
         
         {/* 1. Hero */}
-        <section className="about-hero bg-grid-pattern bg-radial-gradient" style={{ padding: "80px 0 120px 0", minHeight: "60vh", display: "flex", alignItems: "center" }}>
+        <section className="about-hero bg-grid-pattern bg-radial-gradient">
           <div className="container">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-              <div style={{ color: "var(--nr-blue)", fontWeight: 600, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: "24px", fontSize: "0.8125rem" }}>
+              <div className="section-label" style={{ marginBottom: "24px" }}>
                 Who is NEORIZ?
               </div>
-              <h1 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(3.5rem, 6vw, 6.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", lineHeight: 1.02, letterSpacing: "-0.04em", marginBottom: "40px", maxWidth: "900px" }}>
+              <h1 className="hero-headline-white" style={{ maxWidth: "900px", marginBottom: "40px" }}>
                 We Build What Businesses <span style={{ background: "var(--nr-gradient-primary)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Move Toward.</span>
               </h1>
             </motion.div>
@@ -53,9 +52,9 @@ export default function AboutPage() {
         </section>
 
         {/* 2. The NEORIZ Perspective */}
-        <section style={{ padding: "120px 0", background: "var(--nr-white)" }}>
+        <section style={{ background: "var(--nr-white)" }}>
           <div className="container">
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "60px" }}>
+            <div className="grid-system grid-2-col">
               <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
                 <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", lineHeight: 1.2, letterSpacing: "-0.02em" }}>
                   Technology should not exist just for appearance.
@@ -73,14 +72,13 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 3. What We Build & 4. Built Around Real Problems */}
-        <section style={{ padding: "120px 0", background: "var(--nr-deep-navy)", color: "var(--nr-white)", overflow: "hidden" }}>
+        {/* 3. Built Around Real Problems */}
+        <section style={{ background: "var(--nr-deep-navy)", color: "var(--nr-white)", overflow: "hidden" }}>
           <div className="container" style={{ position: "relative" }}>
-            {/* Directional geometry background */}
             <div style={{ position: "absolute", top: 0, right: "-10%", width: "40vw", height: "40vw", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "50%", opacity: 0.5 }}></div>
             
             <div style={{ maxWidth: "800px", marginBottom: "80px", position: "relative", zIndex: 2 }}>
-              <div style={{ color: "var(--nr-teal)", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "16px", fontSize: "0.875rem" }}>
+              <div className="section-label" style={{ color: "var(--nr-teal)" }}>
                 Built Around Real Problems
               </div>
               <h2 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2.5rem, 4vw, 3.5rem)", fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.02em" }}>
@@ -91,7 +89,6 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* 5. From Idea to System Narrative Sequence */}
             <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", position: "relative", zIndex: 2 }}>
               {["IDEA", "CLARITY", "STRATEGY", "DESIGN", "TECHNOLOGY", "SOLUTION"].map((step, idx, arr) => (
                 <motion.div 
@@ -114,8 +111,8 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 6. Company Values */}
-        <section style={{ padding: "120px 0", background: "var(--nr-soft-white)" }}>
+        {/* 4. Company Values */}
+        <section style={{ background: "var(--nr-soft-white)" }}>
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "80px" }}>
               <h2 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2.5rem, 4vw, 3.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", letterSpacing: "-0.02em" }}>
@@ -123,7 +120,7 @@ export default function AboutPage() {
               </h2>
             </div>
             
-            <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "24px", maxWidth: "900px", margin: "0 auto" }}>
+            <div className="grid-system" style={{ maxWidth: "900px", margin: "0 auto" }}>
               {values.map((val, idx) => (
                 <motion.div 
                   key={val.id}
@@ -131,10 +128,11 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  style={{ display: "flex", gap: "32px", alignItems: "baseline", padding: "40px", background: "var(--nr-white)", borderRadius: "16px", border: "1px solid var(--nr-light-gray)" }}
+                  className="value-card"
+                  style={{ display: "flex", flexWrap: "wrap", gap: "24px", alignItems: "baseline", padding: "40px", background: "var(--nr-white)", borderRadius: "16px", border: "1px solid var(--nr-light-gray)" }}
                 >
                   <div style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--nr-blue)" }}>{val.id}</div>
-                  <div>
+                  <div style={{ flex: "1 1 250px" }}>
                     <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "12px" }}>{val.title}</h3>
                     <p style={{ fontSize: "1.125rem", color: "var(--nr-medium-gray)", lineHeight: 1.6, margin: 0 }}>{val.desc}</p>
                   </div>
@@ -144,23 +142,19 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Cross-Page CTA */}
-        <section style={{ padding: "120px 0", background: "var(--nr-white)", textAlign: "center" }}>
+        <section style={{ background: "var(--nr-white)", textAlign: "center" }}>
           <div className="container">
             <h2 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(2.5rem, 4vw, 3.5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "48px", letterSpacing: "-0.03em" }}>
-              Ready to see what we can build?
+              Ready to elevate your digital presence?
             </h2>
-            <MagneticButton>
-              <Link to="/solutions" className="btn-primary">
-                Explore Our Solutions
-                <span className="btn-arrow" style={{ fontSize: "1.2em", marginLeft: "8px" }}>→</span>
-              </Link>
-            </MagneticButton>
+            <Link to="/contact" className="btn-primary-white" style={{ display: "inline-flex" }}>
+              Start a Project <span className="btn-arrow">→</span>
+            </Link>
           </div>
         </section>
 
       </main>
-      
+
       <Footer />
     </>
   );

@@ -28,7 +28,7 @@ export default function WhyChooseUs() {
     <section ref={containerRef} className="why" id="why" style={{ padding: "120px 0", background: "var(--nr-deep-navy)", color: "var(--nr-white)" }}>
       <div className="container">
         
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px", alignItems: "start" }} className="about-grid">
+        <div className="grid-system grid-2-col" style={{ alignItems: "start" }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}

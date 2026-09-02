@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
-import MagneticButton from "./MagneticButton";
 import logo from "../assets/brand/neoriz-logo-horizontal.svg";
 
 export default function Navbar({ onToggleMenu, isMenuOpen }) {
@@ -10,7 +9,7 @@ export default function Navbar({ onToggleMenu, isMenuOpen }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      if (window.scrollY > 20) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -21,8 +20,9 @@ export default function Navbar({ onToggleMenu, isMenuOpen }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const renderLink = (path, label, isCta = false) => {
-    const className = isCta ? "nav-cta" : "nav-link";
+  const renderLink = (path, label) => {
+    const isActive = location.pathname === path;
+    const className = `nav-link-premium ${isActive ? "active" : ""}`;
     return (
       <Link to={path} className={className}>
         {label}
@@ -31,28 +31,38 @@ export default function Navbar({ onToggleMenu, isMenuOpen }) {
   };
 
   return (
-    <nav className={`nav ${isScrolled ? "scrolled" : ""}`}>
-      <div className="container nav-inner">
+    <nav className={`nav-premium ${isScrolled ? "scrolled" : ""}`}>
+      <div className="container nav-inner-premium">
+        {/* LOGO */}
         {isHome ? (
-          <a href="#hero" className="nav-logo" style={{ display: "flex", alignItems: "center" }}>
-            <img src={logo} alt="NEORIZ Solutions" style={{ height: "40px", width: "auto" }} />
+          <a href="#hero" className="nav-logo-premium">
+            <img src={logo} alt="NEORIZ Solutions" />
           </a>
         ) : (
-          <Link to="/" className="nav-logo" style={{ display: "flex", alignItems: "center" }}>
-            <img src={logo} alt="NEORIZ Solutions" style={{ height: "40px", width: "auto" }} />
+          <Link to="/" className="nav-logo-premium">
+            <img src={logo} alt="NEORIZ Solutions" />
           </Link>
         )}
 
-        <div className="nav-links">
+        {/* LINKS */}
+        <div className="nav-links-premium">
+          {renderLink("/", "Home")}
           {renderLink("/about", "About")}
           {renderLink("/solutions", "Solutions")}
-          {renderLink("/work", "Work")}
           {renderLink("/process", "Process")}
-          {renderLink("/contact", "Start a Project", true)}
+          {renderLink("/work", "Work")}
+          
+          {/* PRIMARY CTA (Only pill element) */}
+          <div className="nav-cta-wrapper">
+            <Link to="/contact" className="nav-cta-premium">
+              Start a Project
+            </Link>
+          </div>
         </div>
 
+        {/* MOBILE TOGGLE */}
         <div 
-          className={`nav-toggle ${isMenuOpen ? "active" : ""}`} 
+          className={`nav-toggle-premium ${isMenuOpen ? "active" : ""}`} 
           onClick={onToggleMenu}
           aria-label="Toggle Navigation"
         >

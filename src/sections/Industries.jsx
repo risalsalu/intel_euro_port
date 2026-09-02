@@ -21,7 +21,7 @@ export default function Industries() {
     <section ref={containerRef} className="industries" style={{ padding: "120px 0", background: "var(--nr-soft-white)" }}>
       <div className="container">
         
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "60px" }} className="about-grid">
+        <div className="about-grid">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}

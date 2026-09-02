@@ -12,7 +12,7 @@ export default function FeaturedWork() {
   const featuredProjects = projectsData.slice(0, 4);
 
   return (
-    <section ref={containerRef} className="work" id="work" style={{ padding: "120px 0", background: "var(--nr-soft-white)" }}>
+    <section ref={containerRef} className="work" id="work" style={{ background: "var(--nr-soft-white)" }}>
       <div className="container">
         
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "80px", flexWrap: "wrap", gap: "24px" }}>
@@ -40,25 +40,23 @@ export default function FeaturedWork() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8 }}
-                style={{ 
-                  display: "grid", 
-                  gridTemplateColumns: "repeat(12, 1fr)", 
-                  gap: "32px",
-                  alignItems: "center"
-                }}
-                className="featured-project-row"
+                className="featured-project-row grid-system grid-12-col"
+                style={{ alignItems: "center" }}
               >
                 {/* Image Column */}
-                <div style={{ 
-                  gridColumn: isEven ? "1 / 8" : "6 / 13", 
-                  gridRow: 1,
-                  borderRadius: "24px",
-                  overflow: "hidden",
-                  boxShadow: "var(--nr-shadow-lg)",
-                  position: "relative",
-                  aspectRatio: "16/10",
-                  backgroundColor: "var(--nr-light-gray)"
-                }}>
+                <div 
+                  className="featured-image-col"
+                  style={{ 
+                    gridColumn: isEven ? "1 / 8" : "6 / 13", 
+                    gridRow: 1,
+                    borderRadius: "24px",
+                    overflow: "hidden",
+                    boxShadow: "var(--nr-shadow-lg)",
+                    position: "relative",
+                    aspectRatio: "16/10",
+                    backgroundColor: "var(--nr-light-gray)"
+                  }}
+                >
                   <Link to={`/project/${project.slug}`} style={{ display: "block", width: "100%", height: "100%" }}>
                     <motion.img 
                       whileHover={{ scale: 1.02 }}
@@ -71,12 +69,15 @@ export default function FeaturedWork() {
                 </div>
 
                 {/* Content Column */}
-                <div style={{ 
-                  gridColumn: isEven ? "8 / 13" : "1 / 6",
-                  gridRow: 1,
-                  padding: "0 20px",
-                  zIndex: 2
-                }}>
+                <div 
+                  className="featured-content-col"
+                  style={{ 
+                    gridColumn: isEven ? "8 / 13" : "1 / 6",
+                    gridRow: 1,
+                    padding: "0 20px",
+                    zIndex: 2
+                  }}
+                >
                   <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
                     <span style={{ fontSize: "0.875rem", fontWeight: 600, color: "var(--nr-blue)" }}>{project.id}</span>
                     <span style={{ width: "24px", height: "1px", background: "var(--nr-light-gray)" }}></span>

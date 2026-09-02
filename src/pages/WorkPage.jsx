@@ -115,7 +115,7 @@ export default function WorkPage() {
 
                 {/* Grid Projects */}
                 {gridProjects.length > 0 ? (
-                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))", gap: "80px 40px" }}>
+                  <div className="grid-system grid-2-col" style={{ rowGap: "80px" }}>
                     {gridProjects.map((project, idx) => (
                       <ProjectCard key={project.id} project={project} index={idx} />
                     ))}
