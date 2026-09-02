@@ -20,10 +20,10 @@ export default function Footer() {
     <footer className="footer-premium" style={{ background: "var(--nr-deep-navy)", color: "var(--nr-white)", padding: "100px 0 40px 0" }}>
       <div className="container">
         
-        <div className="grid-system grid-4-col" style={{ gap: "60px", marginBottom: "80px", gridTemplateColumns: "2fr 1fr 1fr 1fr" }}>
+        <div className="footer-grid">
           
           {/* Brand Area */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "24px", paddingRight: "40px" }}>
+          <div className="footer-brand">
             {isHome ? (
               <a href="#hero" style={{ display: "inline-block", width: "fit-content" }}>
                 <img src={logoPrimary} alt="NEORIZ Solutions" style={{ height: "40px", width: "auto", filter: "brightness(0) invert(1)" }} />
@@ -33,15 +33,15 @@ export default function Footer() {
                 <img src={logoPrimary} alt="NEORIZ Solutions" style={{ height: "40px", width: "auto", filter: "brightness(0) invert(1)" }} />
               </Link>
             )}
-            <p style={{ color: "rgba(255, 255, 255, 0.7)", fontSize: "1.125rem", lineHeight: 1.6, maxWidth: "340px", fontWeight: 400 }}>
+            <p className="footer-desc">
               Building thoughtful digital products and experiences for businesses moving forward.
             </p>
           </div>
 
           {/* Navigation */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h4 style={{ fontSize: "0.875rem", fontWeight: 700, color: "var(--nr-white)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px", opacity: 0.9 }}>Navigation</h4>
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          <div className="footer-nav-col">
+            <h4 className="footer-heading">Navigation</h4>
+            <div className="footer-nav-links">
               {renderLink("/", "Home")}
               {renderLink("/about", "About")}
               {renderLink("/solutions", "Solutions")}
@@ -52,17 +52,17 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h4 style={{ fontSize: "0.875rem", fontWeight: 700, color: "var(--nr-white)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px", opacity: 0.9 }}>Contact</h4>
-            <a href="mailto:hello@neorizsolutions.com" style={{ color: "rgba(255, 255, 255, 0.7)", textDecoration: "none", fontSize: "1rem", transition: "color 0.2s ease" }} onMouseOver={(e) => e.target.style.color = "var(--nr-white)"} onMouseOut={(e) => e.target.style.color = "rgba(255, 255, 255, 0.7)"}>
+          <div className="footer-contact-col">
+            <h4 className="footer-heading">Contact</h4>
+            <a href="mailto:hello@neorizsolutions.com" className="footer-email">
               hello@neorizsolutions.com
             </a>
           </div>
 
           {/* Location */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <h4 style={{ fontSize: "0.875rem", fontWeight: 700, color: "var(--nr-white)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px", opacity: 0.9 }}>Location</h4>
-            <div style={{ color: "rgba(255, 255, 255, 0.7)", fontSize: "1rem", lineHeight: 1.5 }}>
+          <div className="footer-location-col">
+            <h4 className="footer-heading">Location</h4>
+            <div className="footer-location-text">
               Kochi Infopark,<br />Kerala, India
             </div>
           </div>
@@ -70,19 +70,57 @@ export default function Footer() {
         </div>
         
         {/* Bottom Bar */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "24px", paddingTop: "40px", borderTop: "1px solid rgba(255, 255, 255, 0.1)" }}>
-          <div style={{ color: "rgba(255, 255, 255, 0.5)", fontSize: "0.875rem" }}>
+        <div className="footer-bottom">
+          <div className="footer-copyright">
             © {currentYear} NEORIZ Solutions. All rights reserved.
           </div>
-          <div style={{ display: "flex", gap: "24px" }}>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255, 255, 255, 0.5)", textDecoration: "none", fontSize: "0.875rem", transition: "color 0.2s ease" }} onMouseOver={(e) => e.target.style.color = "var(--nr-white)"} onMouseOut={(e) => e.target.style.color = "rgba(255, 255, 255, 0.5)"}>LinkedIn</a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255, 255, 255, 0.5)", textDecoration: "none", fontSize: "0.875rem", transition: "color 0.2s ease" }} onMouseOver={(e) => e.target.style.color = "var(--nr-white)"} onMouseOut={(e) => e.target.style.color = "rgba(255, 255, 255, 0.5)"}>Twitter</a>
+          <div className="footer-social">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="footer-social-link">LinkedIn</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="footer-social-link">Twitter</a>
           </div>
         </div>
 
       </div>
 
       <style>{`
+        .footer-grid {
+          display: grid;
+          grid-template-columns: 2fr 1fr 1fr 1fr;
+          gap: 60px;
+          margin-bottom: 80px;
+        }
+        .footer-brand {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          padding-right: 40px;
+        }
+        .footer-desc {
+          color: rgba(255, 255, 255, 0.7);
+          font-size: 1.125rem;
+          line-height: 1.6;
+          max-width: 340px;
+          font-weight: 400;
+        }
+        .footer-nav-col, .footer-contact-col, .footer-location-col {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+        .footer-heading {
+          font-size: 0.875rem;
+          font-weight: 700;
+          color: var(--nr-white);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          margin-bottom: 8px;
+          opacity: 0.9;
+        }
+        .footer-nav-links {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
         .footer-link-premium {
           color: rgba(255, 255, 255, 0.7);
           text-decoration: none;
@@ -94,14 +132,72 @@ export default function Footer() {
         .footer-link-premium:hover {
           color: var(--nr-white);
         }
+        .footer-email {
+          color: rgba(255, 255, 255, 0.7);
+          text-decoration: none;
+          font-size: 1rem;
+          transition: color 0.2s ease;
+          word-break: break-all; /* Critical for small mobile viewports */
+        }
+        .footer-email:hover {
+          color: var(--nr-white);
+        }
+        .footer-location-text {
+          color: rgba(255, 255, 255, 0.7);
+          font-size: 1rem;
+          line-height: 1.5;
+        }
+        .footer-bottom {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 24px;
+          padding-top: 40px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer-copyright {
+          color: rgba(255, 255, 255, 0.5);
+          font-size: 0.875rem;
+        }
+        .footer-social {
+          display: flex;
+          gap: 24px;
+        }
+        .footer-social-link {
+          color: rgba(255, 255, 255, 0.5);
+          text-decoration: none;
+          font-size: 0.875rem;
+          transition: color 0.2s ease;
+        }
+        .footer-social-link:hover {
+          color: var(--nr-white);
+        }
+
+        /* Mobile specific layouts */
         @media (max-width: 1024px) {
-          .footer-premium .grid-system.grid-4-col {
-            grid-template-columns: 1fr;
+          .footer-grid {
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
           }
-          .footer-premium .grid-system > div:first-child {
+          .footer-brand {
             padding-right: 0;
+            grid-column: 1 / -1; /* Make brand full width on tablet */
             margin-bottom: 20px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .footer-grid {
+            grid-template-columns: 1fr; /* Pure vertical stack */
+            gap: 48px;
+          }
+          .footer-bottom {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .footer-brand {
+            margin-bottom: 0;
           }
         }
       `}</style>

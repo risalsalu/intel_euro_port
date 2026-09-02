@@ -75,7 +75,7 @@ export default function Home() {
         
         {/* 09. Technology Marquee Section */}
         <section className="marquee-section" style={{ background: "var(--nr-soft-white)", paddingBottom: "60px" }}>
-          <ScrollingMarquee items={technologiesData} />
+          <ScrollingMarquee />
         </section>
 
         {/* 07. Process / How We Work */}
