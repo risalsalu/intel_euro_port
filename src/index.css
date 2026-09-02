@@ -895,8 +895,8 @@ section {
   width: max-content;
 }
 
-.track-forward {
-  animation: marquee-scroll 40s linear infinite;
+.track-forward-fast {
+  animation: marquee-scroll 30s linear infinite;
 }
 
 .track-reverse {
@@ -924,9 +924,15 @@ section {
 
 .premium-text {
   font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--nr-deep-navy);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: rgba(10, 25, 47, 0.85); /* Slightly softer deep navy */
+  text-transform: uppercase;
+}
+
+.premium-text.emphasized {
+  font-weight: 800;
+  color: var(--nr-deep-navy); /* Full deep navy for core items */
 }
 
 .journey-text {
@@ -956,7 +962,7 @@ section {
 
 /* Reduced Motion & Mobile Fallback */
 @media (prefers-reduced-motion: reduce) {
-  .track-forward, .track-reverse {
+  .track-forward-fast, .track-reverse {
     animation: none;
   }
   .marquee-row {
@@ -969,7 +975,17 @@ section {
   }
 }
 
+@media (max-width: 1024px) {
+  .track-forward-fast {
+    animation-duration: 34s; /* slightly slower for tablet width */
+  }
+}
+
 @media (max-width: 768px) {
+  .track-forward-fast {
+    animation-duration: 40s; /* maintain readability on mobile */
+  }
+  
   .marquee-separator {
     margin: 0 24px;
     font-size: 1.25rem;

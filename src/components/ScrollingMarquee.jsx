@@ -1,68 +1,51 @@
 import React from "react";
 
 export default function ScrollingMarquee() {
-  const row1Items = [
-    "DIGITAL PRODUCTS",
-    "MODERN WEB",
-    "WEB PLATFORMS",
-    "CLOUD SYSTEMS",
-    "MOBILE EXPERIENCES",
-    "BUSINESS AUTOMATION",
-    "BUSINESS SYSTEMS",
-    "AI INTEGRATION",
-    "UI/UX DESIGN",
-    "AI SOLUTIONS"
-  ];
-
-  const row2Items = [
-    "IDEAS → PRODUCTS",
-    "PRODUCTS → PLATFORMS",
-    "PLATFORMS → GROWTH"
+  const items = [
+    { text: "DIGITAL PRODUCTS", emphasize: true },
+    { text: "MODERN WEB" },
+    { text: "WEB PLATFORMS", emphasize: true },
+    { text: "CLOUD SYSTEMS" },
+    { text: "MOBILE EXPERIENCES" },
+    { text: "BUSINESS AUTOMATION" },
+    { text: "BUSINESS SYSTEMS", emphasize: true },
+    { text: "AI SOLUTIONS", emphasize: true },
+    { text: "AI INTEGRATION" },
+    { text: "UI/UX DESIGN" },
+    { text: "E-COMMERCE" },
+    { text: "CUSTOM SOFTWARE", emphasize: true },
+    { text: "SAAS PLATFORMS" },
+    { text: "RESTAURANT TECHNOLOGY" },
+    { text: "DIGITAL TRANSFORMATION" },
+    { text: "SCALABLE SYSTEMS" },
+    { text: "PRODUCT DEVELOPMENT" },
+    { text: "STARTUP SOLUTIONS" },
+    { text: "BRAND EXPERIENCES" },
+    { text: "INTELLIGENT AUTOMATION" }
   ];
 
   return (
-    <div className="marquee-wrapper">
-      {/* Row 1: What we build */}
+    <div className="marquee-wrapper single-row">
       <div className="marquee-row">
-        <div className="marquee-track track-forward">
+        <div className="marquee-track track-forward-fast">
           {/* Original set */}
           <div className="marquee-content">
-            {row1Items.map((item, index) => (
-              <React.Fragment key={`r1-orig-${index}`}>
-                <div className="marquee-item premium-text">{item}</div>
+            {items.map((item, index) => (
+              <React.Fragment key={`orig-${index}`}>
+                <div className={`marquee-item premium-text ${item.emphasize ? 'emphasized' : ''}`}>
+                  {item.text}
+                </div>
                 <div className="marquee-separator">·</div>
               </React.Fragment>
             ))}
           </div>
           {/* Duplicated set for seamless loop */}
           <div className="marquee-content" aria-hidden="true">
-            {row1Items.map((item, index) => (
-              <React.Fragment key={`r1-dup-${index}`}>
-                <div className="marquee-item premium-text">{item}</div>
-                <div className="marquee-separator">·</div>
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Row 2: Business Journey */}
-      <div className="marquee-row row-2">
-        <div className="marquee-track track-reverse">
-          {/* Original set */}
-          <div className="marquee-content">
-            {row2Items.map((item, index) => (
-              <React.Fragment key={`r2-orig-${index}`}>
-                <div className="marquee-item journey-text">{item}</div>
-                <div className="marquee-separator">·</div>
-              </React.Fragment>
-            ))}
-          </div>
-          {/* Duplicated set for seamless loop */}
-          <div className="marquee-content" aria-hidden="true">
-            {row2Items.map((item, index) => (
-              <React.Fragment key={`r2-dup-${index}`}>
-                <div className="marquee-item journey-text">{item}</div>
+            {items.map((item, index) => (
+              <React.Fragment key={`dup-${index}`}>
+                <div className={`marquee-item premium-text ${item.emphasize ? 'emphasized' : ''}`}>
+                  {item.text}
+                </div>
                 <div className="marquee-separator">·</div>
               </React.Fragment>
             ))}
