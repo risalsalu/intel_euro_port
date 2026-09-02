@@ -19,7 +19,6 @@ import useSEO from "../hooks/useSEO";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
@@ -31,19 +30,6 @@ export default function Home() {
     image: "/images/projects/gems-health.png"
   });
 
-  useEffect(() => {
-    // Scroll progress bar logic
-    const handleScroll = () => {
-      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-      if (totalScroll > 0) {
-        const progress = (window.scrollY / totalScroll) * 100;
-        setScrollProgress(progress);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     if (window.location.hash) {
@@ -64,11 +50,6 @@ export default function Home() {
       {/* Premium custom cursor */}
       <CustomCursor />
 
-      {/* Global Scroll Progress Bar */}
-      <div 
-        className="scroll-progress" 
-        style={{ width: `${scrollProgress}%`, background: "var(--nr-gradient-primary)" }}
-      />
 
       {/* Navigation */}
       <Navbar onToggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />
