@@ -10,6 +10,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  min-width: 0;
 }
 
 :root {
@@ -110,8 +111,11 @@ body {
   background: var(--nr-white);
   color: var(--nr-dark-navy);
   line-height: 1.6;
+}
+
+#root {
+  width: 100%;
   overflow-x: hidden;
-  max-width: 100vw;
 }
 
 /* --- TYPOGRAPHY UTILITIES --- */
@@ -2109,12 +2113,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Stop overflowing absolute elements */
-body {
-  overflow-x: hidden; 
-  /* Safe fallback for horizontal scroll, though we fix the actual elements */
-  max-width: 100vw;
-}
+/* Removed global body overrides causing layout issues */
 /* Process Component Responsive */
 .process-grid {
   display: grid;
