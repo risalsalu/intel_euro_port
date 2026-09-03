@@ -17,7 +17,8 @@ export default function ContactPage() {
     projectType: "", 
     budget: "",
     timeline: "",
-    message: "" 
+    message: "",
+    bot_field: ""
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -43,11 +44,11 @@ export default function ContactPage() {
     if (submitError) setSubmitError(null);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Please enter your name.";
-    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Please enter a valid email address.";
+    if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = "Please enter a valid email address.";
     if (!formData.message.trim()) newErrors.message = "Please tell us about your project.";
 
     if (Object.keys(newErrors).length > 0) {
@@ -58,12 +59,25 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setSubmitError(null);
 
-    // Simulated network delay for UX, but always fails because no backend is configured yet.
-    // PRODUCTION REQUIREMENT: Integrate with Formspree, Web3Forms, or custom backend.
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "We couldn't send your inquiry right now. Please try again or email us directly at support@neorizsolutions.com.");
+      }
+      
+      setIsSubmitted(true);
+    } catch (err) {
+      setSubmitError(err.message || "We couldn't send your inquiry right now. Please try again or email us directly at support@neorizsolutions.com.");
+    } finally {
       setIsSubmitting(false);
-      setSubmitError("Form submission service is not yet configured for production. Please use the email or phone number listed.");
-    }, 1500);
+    }
   };
 
   const inputStyle = (error) => ({
@@ -168,10 +182,22 @@ export default function ContactPage() {
                     
                     <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "24px" }} noValidate>
                       
+                      {/* Honeypot Spam Protection */}
+                      <input 
+                        type="text" 
+                        name="bot_field" 
+                        value={formData.bot_field} 
+                        onChange={handleChange} 
+                        style={{ display: "none" }} 
+                        tabIndex="-1" 
+                        autoComplete="off" 
+                      />
+
                       <div style={{ display: "flex", gap: "24px", flexWrap: "wrap" }}>
                         <div style={{ flex: "1 1 200px" }}>
-                          <label style={labelStyle}>Name *</label>
+                          <label htmlFor="contact_name" style={labelStyle}>Name *</label>
                           <input 
+                            id="contact_name"
                             type="text" 
                             name="name" 
                             value={formData.name}
@@ -181,13 +207,16 @@ export default function ContactPage() {
                             onFocus={(e) => e.target.style.borderColor = "var(--nr-deep-navy)"}
                             onBlur={(e) => e.target.style.borderColor = errors.name ? "#FF3333" : "#EAEAEA"}
                             disabled={isSubmitting}
+                            aria-invalid={errors.name ? "true" : "false"}
+                            aria-describedby={errors.name ? "name-error" : undefined}
                           />
-                          {errors.name && <span style={{ fontSize: "0.75rem", color: "#FF3333", marginTop: "6px", display: "block" }}>{errors.name}</span>}
+                          {errors.name && <span id="name-error" style={{ fontSize: "0.75rem", color: "#FF3333", marginTop: "6px", display: "block" }}>{errors.name}</span>}
                         </div>
                         
                         <div style={{ flex: "1 1 200px" }}>
-                          <label style={labelStyle}>Email *</label>
+                          <label htmlFor="contact_email" style={labelStyle}>Email *</label>
                           <input 
+                            id="contact_email"
                             type="email" 
                             name="email" 
                             value={formData.email}
@@ -197,14 +226,17 @@ export default function ContactPage() {
                             onFocus={(e) => e.target.style.borderColor = "var(--nr-deep-navy)"}
                             onBlur={(e) => e.target.style.borderColor = errors.email ? "#FF3333" : "#EAEAEA"}
                             disabled={isSubmitting}
+                            aria-invalid={errors.email ? "true" : "false"}
+                            aria-describedby={errors.email ? "email-error" : undefined}
                           />
-                          {errors.email && <span style={{ fontSize: "0.75rem", color: "#FF3333", marginTop: "6px", display: "block" }}>{errors.email}</span>}
+                          {errors.email && <span id="email-error" style={{ fontSize: "0.75rem", color: "#FF3333", marginTop: "6px", display: "block" }}>{errors.email}</span>}
                         </div>
                       </div>
 
                       <div>
-                        <label style={labelStyle}>Company / Organization (Optional)</label>
+                        <label htmlFor="contact_company" style={labelStyle}>Company / Organization (Optional)</label>
                         <input 
+                          id="contact_company"
                           type="text" 
                           name="company" 
                           value={formData.company}
@@ -219,8 +251,9 @@ export default function ContactPage() {
 
                       <div style={{ display: "flex", gap: "24px", flexWrap: "wrap" }}>
                         <div style={{ flex: "1 1 200px" }}>
-                          <label style={labelStyle}>Project Type</label>
+                          <label htmlFor="contact_projectType" style={labelStyle}>Project Type</label>
                           <select
+                            id="contact_projectType"
                             name="projectType"
                             value={formData.projectType}
                             onChange={handleChange}
@@ -240,8 +273,9 @@ export default function ContactPage() {
                         </div>
 
                         <div style={{ flex: "1 1 200px" }}>
-                          <label style={labelStyle}>Estimated Budget (Optional)</label>
+                          <label htmlFor="contact_budget" style={labelStyle}>Estimated Budget (Optional)</label>
                           <select
+                            id="contact_budget"
                             name="budget"
                             value={formData.budget}
                             onChange={handleChange}
@@ -261,8 +295,9 @@ export default function ContactPage() {
                       </div>
 
                       <div>
-                        <label style={labelStyle}>Project Details *</label>
+                        <label htmlFor="contact_message" style={labelStyle}>Project Details *</label>
                         <textarea 
+                          id="contact_message"
                           name="message" 
                           value={formData.message}
                           onChange={handleChange}
@@ -272,12 +307,14 @@ export default function ContactPage() {
                           onFocus={(e) => e.target.style.borderColor = "var(--nr-deep-navy)"}
                           onBlur={(e) => e.target.style.borderColor = errors.message ? "#FF3333" : "#EAEAEA"}
                           disabled={isSubmitting}
+                          aria-invalid={errors.message ? "true" : "false"}
+                          aria-describedby={errors.message ? "message-error" : undefined}
                         />
-                        {errors.message && <span style={{ fontSize: "0.75rem", color: "#FF3333", marginTop: "6px", display: "block" }}>{errors.message}</span>}
+                        {errors.message && <span id="message-error" style={{ fontSize: "0.75rem", color: "#FF3333", marginTop: "6px", display: "block" }}>{errors.message}</span>}
                       </div>
 
                       {submitError && (
-                        <div style={{ padding: "16px", background: "#FFEBEB", border: "1px solid #FF3333", borderRadius: "8px", color: "#D10000", fontSize: "0.875rem", lineHeight: 1.5 }}>
+                        <div aria-live="polite" style={{ padding: "16px", background: "#FFEBEB", border: "1px solid #FF3333", borderRadius: "8px", color: "#D10000", fontSize: "0.875rem", lineHeight: 1.5 }}>
                           {submitError}
                         </div>
                       )}
@@ -331,15 +368,17 @@ export default function ContactPage() {
                     transition={{ duration: 0.6 }}
                     style={{ textAlign: "center", padding: "60px 0" }}
                   >
-                    <div style={{ width: "80px", height: "80px", background: "var(--nr-blue)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 32px" }}>
-                      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <div aria-live="polite">
+                      <div style={{ width: "80px", height: "80px", background: "var(--nr-blue)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 32px" }}>
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      </div>
+                      <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "16px", letterSpacing: "-0.02em" }}>
+                        MESSAGE RECEIVED.
+                      </h2>
+                      <p style={{ color: "var(--nr-medium-gray)", fontSize: "1.125rem", lineHeight: 1.6, marginBottom: "40px" }}>
+                        Thank you &mdash; your inquiry has been sent successfully. We will review your message and get back to you as soon as possible.
+                      </p>
                     </div>
-                    <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "16px", letterSpacing: "-0.02em" }}>
-                      MESSAGE RECEIVED.
-                    </h2>
-                    <p style={{ color: "var(--nr-medium-gray)", fontSize: "1.125rem", lineHeight: 1.6, marginBottom: "40px" }}>
-                      Thanks for reaching out. We will review your message and get back to you as soon as possible.
-                    </p>
                     <MagneticButton>
                       <button 
                         onClick={() => {
