@@ -19,8 +19,8 @@ export default function ProjectCard({ project, index = 0 }) {
           display: "block", 
           borderRadius: "16px", 
           overflow: "hidden", 
-          marginBottom: "24px", 
-          aspectRatio: "16/10", 
+          marginBottom: "32px", 
+          aspectRatio: "4/3", 
           background: "var(--nr-light-gray)",
           position: "relative"
         }}
@@ -32,32 +32,22 @@ export default function ProjectCard({ project, index = 0 }) {
           alt={project.name}
           style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
         />
-        {/* Subtle hover overlay using CSS */}
-        <div 
-          className="project-card-overlay" 
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "linear-gradient(to top, rgba(0,0,0,0.2) 0%, transparent 50%)",
-            opacity: 0,
-            transition: "opacity 0.4s ease"
-          }}
-        />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.1) 0%, transparent 40%)", pointerEvents: "none" }}></div>
       </Link>
       
-      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
-        <span style={{ fontSize: "0.875rem", fontWeight: 600, color: "var(--nr-blue)" }}>{project.category}</span>
+      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+        <span style={{ fontSize: "0.8125rem", fontWeight: 700, color: "var(--nr-blue)", textTransform: "uppercase", letterSpacing: "0.05em" }}>{project.category}</span>
         <span style={{ width: "16px", height: "1px", background: "var(--nr-light-gray)" }}></span>
-        <span style={{ fontSize: "0.875rem", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--nr-medium-gray)" }}>{project.industry}</span>
+        <span style={{ fontSize: "0.8125rem", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--nr-medium-gray)", fontWeight: 600 }}>{project.industry}</span>
       </div>
       
-      <h2 style={{ fontSize: "1.75rem", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "12px", letterSpacing: "-0.01em" }}>
+      <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 700, color: "var(--nr-deep-navy)", marginBottom: "16px", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
         <Link to={`/project/${project.slug}`} style={{ color: "inherit", textDecoration: "none" }}>
           {project.name}
         </Link>
       </h2>
       
-      <p style={{ color: "var(--nr-medium-gray)", fontSize: "1.125rem", lineHeight: 1.6, flexGrow: 1, marginBottom: "20px" }}>
+      <p style={{ color: "var(--nr-medium-gray)", fontSize: "1.0625rem", lineHeight: 1.6, flexGrow: 1, marginBottom: "24px" }}>
         {project.description}
       </p>
 

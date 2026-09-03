@@ -21,8 +21,8 @@ export default function ProcessPage() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   useSEO({
-    title: "Our Process — NEORIZ Solutions",
-    description: "Discover the NEORIZ methodology: Discover, Define, Design, Develop, and Deliver.",
+    title: "Our Process | Software Development Methodology | NEORIZ Solutions",
+    description: "Discover the NEORIZ Solutions methodology: Discover, Define, Design, Develop, and Deliver. We combine strategic clarity with rigorous technical execution.",
     url: "https://neorizsolutions.com/process"
   });
 

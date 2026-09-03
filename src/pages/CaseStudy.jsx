@@ -7,90 +7,24 @@ import MagneticButton from "../components/MagneticButton";
 import NotFound from "./NotFound";
 import ProjectNavigation from "../components/portfolio/ProjectNavigation";
 import RelatedProjects from "../components/portfolio/RelatedProjects";
+import useSEO from "../hooks/useSEO";
 
 export default function CaseStudy() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const project = caseStudiesData[slug];
 
+  useSEO({
+    title: project ? `${project.name} Case Study | NEORIZ Solutions` : "Case Study Not Found",
+    description: project ? (project.overview || `${project.name} case study by NEORIZ Solutions.`) : "",
+    url: project ? `https://neorizsolutions.com/project/${slug}` : "",
+    image: project ? project.image : "",
+    type: "article"
+  });
+
   useEffect(() => {
-    if (!project) return;
-
-    const originalTitle = document.title;
-    const metaDescription = document.querySelector('meta[name="description"]');
-    const originalDescription = metaDescription ? metaDescription.getAttribute("content") : "";
-
-    const setMetaTag = (attrName, attrValue, contentValue) => {
-      let element = document.querySelector(`meta[${attrName}="${attrValue}"]`);
-      let created = false;
-      if (!element) {
-        element = document.createElement("meta");
-        element.setAttribute(attrName, attrValue);
-        document.head.appendChild(element);
-        created = true;
-      }
-      const previousValue = element.getAttribute("content");
-      element.setAttribute("content", contentValue);
-      return { element, previousValue, created };
-    };
-
-    const setLinkTag = (relValue, hrefValue) => {
-      let element = document.querySelector(`link[rel="${relValue}"]`);
-      let created = false;
-      if (!element) {
-        element = document.createElement("link");
-        element.setAttribute("rel", relValue);
-        document.head.appendChild(element);
-        created = true;
-      }
-      const previousValue = element.getAttribute("href");
-      element.setAttribute("href", hrefValue);
-      return { element, previousValue, created };
-    };
-
-    document.title = `${project.name} Case Study — NEORIZ Solutions`;
-    if (metaDescription) {
-      metaDescription.setAttribute("content", project.overview || `${project.name} case study by NEORIZ Solutions.`);
-    }
-
-    const ogUrl = setMetaTag("property", "og:url", `https://neorizsolutions.com/project/${slug}`);
-    const ogTitle = setMetaTag("property", "og:title", `${project.name} Case Study — NEORIZ Solutions`);
-    const ogDesc = setMetaTag("property", "og:description", project.overview || `${project.name} case study by NEORIZ Solutions.`);
-    const ogImage = setMetaTag("property", "og:image", `https://neorizsolutions.com${project.image}`);
-
-    const canonical = setLinkTag("canonical", `https://neorizsolutions.com/project/${slug}`);
-
     window.scrollTo(0, 0);
-
-    return () => {
-      document.title = originalTitle;
-      if (metaDescription) {
-        metaDescription.setAttribute("content", originalDescription);
-      }
-      const cleanMeta = (metaInfo) => {
-        if (!metaInfo) return;
-        if (metaInfo.created) {
-          metaInfo.element.remove();
-        } else if (metaInfo.previousValue !== null) {
-          metaInfo.element.setAttribute("content", metaInfo.previousValue);
-        }
-      };
-      const cleanLink = (linkInfo) => {
-        if (!linkInfo) return;
-        if (linkInfo.created) {
-          linkInfo.element.remove();
-        } else if (linkInfo.previousValue !== null) {
-          linkInfo.element.setAttribute("href", linkInfo.previousValue);
-        }
-      };
-
-      cleanMeta(ogUrl);
-      cleanMeta(ogTitle);
-      cleanMeta(ogDesc);
-      cleanMeta(ogImage);
-      cleanLink(canonical);
-    };
-  }, [slug, project]);
+  }, [slug]);
 
   if (!project) return <NotFound />;
 
@@ -117,7 +51,7 @@ export default function CaseStudy() {
           <div className="case-hero-grid">
             <div>
               <div style={{ color: "var(--nr-blue)", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "16px", fontSize: "0.875rem" }}>
-                {project.category} / {project.industry}
+                {project.category === project.industry ? project.category : `${project.category} / ${project.industry}`}
               </div>
               <h1 style={{ fontFamily: "var(--nr-font-display)", fontSize: "clamp(3rem, 6vw, 5rem)", fontWeight: 700, color: "var(--nr-deep-navy)", lineHeight: 1.05, letterSpacing: "-0.03em", marginBottom: "24px" }}>
                 {project.name}

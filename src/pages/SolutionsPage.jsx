@@ -62,8 +62,8 @@ export default function SolutionsPage() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   useSEO({
-    title: "Solutions & Capabilities — NEORIZ Solutions",
-    description: "Explore our capabilities in building digital experiences, web applications, and custom software for enterprises.",
+    title: "Digital Solutions & Custom Software | NEORIZ Solutions",
+    description: "Explore our capabilities in building digital experiences, web applications, and custom enterprise software focused on business performance.",
     url: "https://neorizsolutions.com/solutions"
   });
 

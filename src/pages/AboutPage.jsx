@@ -20,8 +20,8 @@ export default function AboutPage() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   useSEO({
-    title: "About Us — NEORIZ Solutions",
-    description: "Learn about NEORIZ Solutions, our approach, and our principles for building premium digital platforms.",
+    title: "About NEORIZ Solutions | Software Development & Digital Agency",
+    description: "Learn about NEORIZ Solutions' approach to building premium digital platforms. We combine deep engineering with premium aesthetic design to solve real business problems.",
     url: "https://neorizsolutions.com/about"
   });
 

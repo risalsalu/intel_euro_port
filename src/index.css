@@ -27,7 +27,7 @@
   --nr-white: #FFFFFF;
   --nr-soft-white: #F8F9FA;
   --nr-light-gray: #E2E8F0;
-  --nr-medium-gray: #94A3B8;
+  --nr-medium-gray: #475569;
   --nr-dark-navy: #0F172A;
   --nr-near-black: #0B0F19;
 
@@ -730,142 +730,6 @@ section {
   display: inline-block;
 }
 
-/* --- FEATURED WORK SECTION --- */
-.work {
-  background: var(--gray-50);
-}
-
-.work-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 64px;
-}
-
-.work-header-right {
-  font-size: 0.875rem;
-  color: var(--gray-500);
-}
-
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 48px;
-}
-
-.work-item {
-  position: relative;
-  display: block;
-  color: inherit;
-}
-
-.work-item-card {
-  border: 1px solid var(--gray-200);
-  background: var(--white);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all var(--transition-medium);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.work-item-image {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 4/3;
-  background: var(--gray-100);
-  border-bottom: 1px solid var(--gray-200);
-}
-
-.work-item-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition-slow);
-}
-
-.work-item-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.02) 100%);
-  transition: opacity var(--transition-medium);
-}
-
-.work-item-info {
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.work-item-meta {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-
-.work-item-tag {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gray-500);
-  background: var(--gray-100);
-  padding: 4px 12px;
-  border-radius: 100px;
-}
-
-.work-item-name {
-  font-family: var(--font-display);
-  font-size: 1.375rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  margin-bottom: 8px;
-  transition: color var(--transition-fast);
-}
-
-.work-item-desc {
-  font-size: 0.9375rem;
-  color: var(--gray-600);
-  line-height: 1.5;
-  margin-bottom: 24px;
-  flex-grow: 1;
-}
-
-.work-item-btn {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all var(--transition-fast);
-}
-
-.work-item-btn span {
-  transition: transform var(--transition-fast);
-}
-
-.work-item:hover .work-item-card {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.03);
-  border-color: var(--black);
-}
-
-.work-item:hover .work-item-image img {
-  transform: scale(1.04);
-}
-
-.work-item:hover .work-item-btn {
-  color: var(--gray-600);
-}
-.work-item:hover .work-item-btn span {
-  transform: translateX(4px);
-}
-
 /* --- CAPABILITY MARQUEE (NEW) --- */
 .marquee-section {
   padding: 80px 0;
@@ -896,11 +760,7 @@ section {
 }
 
 .track-forward-fast {
-  animation: marquee-scroll 30s linear infinite;
-}
-
-.track-reverse {
-  animation: marquee-scroll-reverse 45s linear infinite;
+  animation: marquee-scroll 6s linear infinite;
 }
 
 .marquee-content {
@@ -924,22 +784,10 @@ section {
 
 .premium-text {
   font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.04em;
-  color: rgba(10, 25, 47, 0.85); /* Slightly softer deep navy */
+  color: var(--nr-deep-navy);
   text-transform: uppercase;
-}
-
-.premium-text.emphasized {
-  font-weight: 800;
-  color: var(--nr-deep-navy); /* Full deep navy for core items */
-}
-
-.journey-text {
-  font-size: clamp(1.125rem, 2vw, 1.75rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--nr-medium-gray);
 }
 
 @keyframes marquee-scroll {
@@ -951,18 +799,9 @@ section {
   }
 }
 
-@keyframes marquee-scroll-reverse {
-  from {
-    transform: translateX(-50%);
-  }
-  to {
-    transform: translateX(0%);
-  }
-}
-
 /* Reduced Motion & Mobile Fallback */
 @media (prefers-reduced-motion: reduce) {
-  .track-forward-fast, .track-reverse {
+  .track-forward-fast {
     animation: none;
   }
   .marquee-row {
@@ -977,13 +816,13 @@ section {
 
 @media (max-width: 1024px) {
   .track-forward-fast {
-    animation-duration: 34s; /* slightly slower for tablet width */
+    animation-duration: 8s; /* slightly slower for tablet width */
   }
 }
 
 @media (max-width: 768px) {
   .track-forward-fast {
-    animation-duration: 40s; /* maintain readability on mobile */
+    animation-duration: 10s; /* maintain readability on mobile */
   }
   
   .marquee-separator {
@@ -2301,3 +2140,78 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* --- FEATURED PROJECT PAGE COMPONENT --- */
+.featured-project-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 120px;
+}
+.featured-project-container.reversed {
+  grid-template-columns: 1fr 1.2fr;
+}
+@media (max-width: 768px) {
+  .featured-project-container, .featured-project-container.reversed {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 80px;
+  }
+  .featured-project-image-col {
+    order: 1 !important;
+    width: 100%;
+  }
+  .featured-project-text-col {
+    order: 2 !important;
+    width: 100%;
+  }
+}
+
+/* --- EDITORIAL SHOWCASE SECTION --- */
+.editorial-project-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+@media (max-width: 768px) {
+  .editorial-project-info {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+
+/* --- PROJECT FILTER MOBILE SCROLL --- */
+.project-filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 60px;
+  align-items: center;
+}
+@media (max-width: 480px) {
+  .project-filter-container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .project-filter-container::-webkit-scrollbar {
+    display: none;
+  }
+  .project-filter-container button {
+    white-space: nowrap;
+  }
+}
+
+
+/* --- HIDE CUSTOM CURSOR ON TOUCH DEVICES --- */
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+  }
+}
+

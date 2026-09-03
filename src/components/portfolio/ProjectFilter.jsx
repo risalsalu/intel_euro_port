@@ -3,13 +3,7 @@ import { motion } from "framer-motion";
 
 export default function ProjectFilter({ categories, activeCategory, onCategoryChange }) {
   return (
-    <div style={{ 
-      display: "flex", 
-      flexWrap: "wrap", 
-      gap: "12px", 
-      marginBottom: "60px",
-      alignItems: "center"
-    }}>
+    <div className="project-filter-container">
       {categories.map((category) => (
         <button
           key={category}

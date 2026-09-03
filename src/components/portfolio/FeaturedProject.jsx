@@ -5,14 +5,8 @@ import MagneticButton from "../MagneticButton";
 
 export default function FeaturedProject({ project, reversed = false }) {
   return (
-    <div style={{
-      display: "grid",
-      gridTemplateColumns: reversed ? "1fr 1.2fr" : "1.2fr 1fr",
-      gap: "60px",
-      alignItems: "center",
-      marginBottom: "120px"
-    }}>
-      <div style={{ order: reversed ? 2 : 1 }}>
+    <div className={`featured-project-container ${reversed ? 'reversed' : ''}`}>
+      <div className="featured-project-image-col" style={{ order: reversed ? 2 : 1 }}>
         <Link 
           to={`/project/${project.slug}`}
           data-cursor="case-study"
@@ -28,7 +22,7 @@ export default function FeaturedProject({ project, reversed = false }) {
         </Link>
       </div>
       
-      <div style={{ order: reversed ? 1 : 2, display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+      <div className="featured-project-text-col" style={{ order: reversed ? 1 : 2, display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
           <span style={{ fontSize: "0.875rem", fontWeight: 600, color: "var(--nr-blue)" }}>Featured</span>
           <span style={{ width: "24px", height: "1px", background: "var(--nr-medium-gray)" }}></span>

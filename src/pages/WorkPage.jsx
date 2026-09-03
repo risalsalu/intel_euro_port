@@ -31,8 +31,8 @@ export default function WorkPage() {
   const [activeCategory, setActiveCategory] = useState("All");
 
   useSEO({
-    title: "Selected Work — NEORIZ Solutions",
-    description: "Explore our portfolio of premium digital platforms, custom software, and modern web applications.",
+    title: "Portfolio & Case Studies | NEORIZ Solutions",
+    description: "Explore our portfolio of premium digital platforms, custom enterprise software, and modern web applications built by NEORIZ Solutions.",
     url: "https://neorizsolutions.com/work"
   });
 
@@ -48,7 +48,7 @@ export default function WorkPage() {
 
   // If viewing 'All', separate featured projects from the regular grid
   const showFeaturedLayout = activeCategory === "All";
-  const featuredProjects = showFeaturedLayout ? filteredProjects.filter(p => p.featured).slice(0, 2) : [];
+  const featuredProjects = showFeaturedLayout ? filteredProjects.filter(p => p.featured).slice(0, 1) : [];
   
   // The rest of the projects (if All, exclude the ones shown as featured; otherwise show all filtered)
   const gridProjects = showFeaturedLayout 
@@ -108,14 +108,14 @@ export default function WorkPage() {
                 {showFeaturedLayout && featuredProjects.length > 0 && (
                   <div style={{ marginBottom: "120px" }}>
                     {featuredProjects.map((project, index) => (
-                      <FeaturedProject key={project.id} project={project} reversed={index % 2 !== 0} />
+                      <FeaturedProject key={project.id} project={project} reversed={false} />
                     ))}
                   </div>
                 )}
 
                 {/* Grid Projects */}
                 {gridProjects.length > 0 ? (
-                  <div className="grid-system grid-2-col" style={{ rowGap: "80px" }}>
+                  <div className="grid-system grid-2-col" style={{ gap: "48px" }}>
                     {gridProjects.map((project, idx) => (
                       <ProjectCard key={project.id} project={project} index={idx} />
                     ))}

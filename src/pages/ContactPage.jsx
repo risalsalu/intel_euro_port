@@ -25,8 +25,8 @@ export default function ContactPage() {
   const [submitError, setSubmitError] = useState(null);
 
   useSEO({
-    title: "Start a Project — NEORIZ Solutions",
-    description: "Ready to build something? Contact NEORIZ Solutions to discuss your project requirements.",
+    title: "Contact Us | Start a Project | NEORIZ Solutions",
+    description: "Ready to build something? Contact NEORIZ Solutions to discuss your project requirements, custom software needs, or digital platform goals.",
     url: "https://neorizsolutions.com/contact"
   });
 

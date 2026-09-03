@@ -24,10 +24,9 @@ export default function Home() {
   const closeMenu = () => setIsMenuOpen(false);
 
   useSEO({
-    title: "NEORIZ Solutions — Transforming Ideas Into Scalable Software",
-    description: "NEORIZ Solutions is a software development studio based in Kochi Infopark. We build premium software for diverse industries.",
-    url: "https://neorizsolutions.com/",
-    image: "/images/projects/gems-health.png"
+    title: "NEORIZ Solutions | Digital Products, Websites & Platforms",
+    description: "NEORIZ Solutions builds premium custom web applications, digital platforms, and business systems focused on performance and seamless user experiences.",
+    url: "https://neorizsolutions.com"
   });
 
 
