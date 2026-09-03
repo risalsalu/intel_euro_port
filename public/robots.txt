@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /404
 
-Sitemap: https://neorizsolutions.com/sitemap.xml
+Sitemap: https://www.neorizsolutions.com/sitemap.xml

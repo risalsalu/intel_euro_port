@@ -50,7 +50,7 @@ function generateRobotsTxt() {
 Allow: /
 Disallow: /404
 
-Sitemap: ${BASE_URL}/sitemap.xml
+Sitemap: https://www.neorizsolutions.com/sitemap.xml
 `;
 }
 
