@@ -34,11 +34,19 @@ export default async function handler(req, res) {
 
   // 6. Check Environment Setup
   const resendApiKey = process.env.RESEND_API_KEY;
-  const toEmail = process.env.CONTACT_EMAIL_TO || 'support@neorizsolutions.com';
-  const fromEmail = process.env.CONTACT_EMAIL_FROM || 'noreply@neorizsolutions.com';
+  const toEmail = process.env.CONTACT_EMAIL;
+  const fromEmail = process.env.EMAIL_FROM || 'NEORIZ Solutions <onboarding@resend.dev>';
 
   if (!resendApiKey) {
-    console.error('RESEND_API_KEY is not configured in the environment.');
+    console.error('CRITICAL ERROR: RESEND_API_KEY is not configured in the environment.');
+    return res.status(500).json({ 
+      success: false, 
+      message: 'Server configuration error. Please contact us directly via email.' 
+    });
+  }
+
+  if (!toEmail) {
+    console.error('CRITICAL ERROR: CONTACT_EMAIL is not configured in the environment.');
     return res.status(500).json({ 
       success: false, 
       message: 'Server configuration error. Please contact us directly via email.' 
@@ -101,7 +109,7 @@ ${new Date().toISOString()}
         'Authorization': `Bearer ${resendApiKey}`
       },
       body: JSON.stringify({
-        from: `NEORIZ Website <${fromEmail}>`,
+        from: fromEmail,
         to: [toEmail],
         reply_to: email, // Direct replies go to the user
         subject: subject,
@@ -113,7 +121,11 @@ ${new Date().toISOString()}
     const data = await resendResponse.json();
 
     if (!resendResponse.ok) {
-      console.error('Resend API Error:', data);
+      console.error('Resend API Error: Failed to dispatch email.', {
+        status: resendResponse.status,
+        statusText: resendResponse.statusText,
+        error: data
+      });
       return res.status(500).json({ 
         success: false, 
         message: 'Failed to dispatch email via provider. Please try again later.' 
@@ -123,7 +135,7 @@ ${new Date().toISOString()}
     return res.status(200).json({ success: true, message: 'Inquiry received successfully.' });
 
   } catch (error) {
-    console.error('Network or Execution Error:', error);
+    console.error('Network or Execution Error in contact API:', error);
     return res.status(500).json({ 
       success: false, 
       message: 'An unexpected error occurred while processing your request.' 
